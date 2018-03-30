@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Clan, Team, ClanTeam, Game, Clash Royale, multyplayer" />
+    <title>Team Just Players</title>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113945586-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-113945586-1');
+    </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1273441616495677",
+            enable_page_level_ads: true
+        });
+    </script>
+
+    @Styles.Render("~/Content/css")
+
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <script>
+        // Open the Modal
+        function openModal() {
+            $('#myModal').modal('show');
+        }
+    </script>
+
+</head>
+<body>
+    <!-- banner -->
+    <div class="banner">        
+        <div class="agileinfo-dot">
+            <div class="agileits-logo">
+                <h1><a href="index.html">JUST <span>Players</span></a></h1>
+                <h5>Tag: <span>#8GPYGYCV</span></h5>
+            </div>
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-top-info">
+                        <nav class="navbar navbar-default">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                                <nav>
+                                    <ul class="nav navbar-nav">
+                                        <li class="active"><a href="index.html">Home</a></li>
+                                        <li><a href="#rules" class="scroll">Rules</a></li>
+                                        <li><a href="#statistics" class="scroll">Statistics</a></li>
+                                        <li><a href="#team" class="scroll">Team</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="w3layouts-banner-info">
+                <div class="container">
+                    <div class="w3layouts-banner-slider">
+                        <div class="w3layouts-banner-top-slider">
+                            <div class="slider">
+                                <div class="callbacks_container">
+                                    <ul class="rslides callbacks callbacks1" id="slider4">
+                                        <li>
+                                            <div class="banner_text">
+                                                <h3>Team Statistics</h3>
+                                                <p>Team player activity details determine the rank and role in the team.</p>
+                                                <div class="w3-button">
+                                                    <a href="#statistics" >Read More</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="banner_text">
+                                                <h3>Facebook Group</h3>
+                                                <p>Join our crew to support, improve and develop together.</p>
+                                                <div class="w3-button">
+                                                    <a href="https://www.facebook.com/groups/1557722684304649/" target="_blank" >Join Now</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"> </div>
+                                <script>
+                                    // You can also use "$(window).load(function() {"
+                                    $(function () {
+                                        // Slideshow 4
+                                        $("#slider4").responsiveSlides({
+                                            auto: true,
+                                            pager: true,
+                                            nav: true,
+                                            speed: 500,
+                                            namespace: "callbacks",
+                                            before: function () {
+                                                $('.events').append("<li>before event fired.</li>");
+                                            },
+                                            after: function () {
+                                                $('.events').append("<li>after event fired.</li>");
+                                            }
+                                        });
+
+                                    });
+                                </script>
+                                <!--banner Slider starts Here-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- //banner -->
+        @RenderBody()
+
+        <!-- footer -->
+        <div class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="col-md-4 amet-sed">
+                        <div class="footer-title">
+                            <h3>About Us</h3>
+                        </div>
+                        <p>We are clan created to support people who like to play in a team and have clear rules. We try to develop depends on our people wishes.</p>
+                    </div>
+                    <div class="col-md-4 amet-sed amet-medium">
+                        <div class="footer-title">
+                            <h3>Games</h3>
+                        </div>
+                        <p><a href="https://clashroyale.com/">Cclash Royale</a> Enter the Arena! From the creators of Clash of Clans comes a real-time multiplayer game starring the Royales, your favorite Clash characters and much, much more. </p>
+                        <p><a href="http://supercell.com/en/games/clashofclans/">Clash Of Clans</a> Still looking for good option to expand the army.</p>
+                    </div>
+                    <div class="col-md-4 amet-sed ">
+                        <div class="footer-title">
+                            <h3>Follow Us</h3>
+                        </div>
+                        <div class="agileinfo-social-grids">
+                            <ul>
+                                <li><a href="https://www.facebook.com/groups/1557722684304649/"><i class="fa fa-facebook"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <!-- //footer -->
+
+        @RenderSection("scripts", required: false)
+        @Scripts.Render(" ~/bundles/custom")
+        <script type="text/javascript">
+            /* init Jarallax */
+            $('.jarallax').jarallax({
+                speed: 0.5,
+                imgWidth: 1366,
+                imgHeight: 768
+            })
+        </script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+                });
+            });
+        </script>
+        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span>To Top</a>
+</body>
+</html>

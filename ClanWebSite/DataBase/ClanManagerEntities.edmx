@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ClanManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tag" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="ClanRank" Type="int" Nullable="false" />
+          <Property Name="Trophies" Type="int" Nullable="false" />
+          <Property Name="IsStillInTheClan" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberHistory">
+          <Key>
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Tag" />
+          </Key>
+          <Property Name="Date" Type="bigint" Nullable="false" />
+          <Property Name="Tag" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ClanMember" Type="int" Nullable="false" />
+          <Property Name="ClanChestCrowns" Type="int" Nullable="false" />
+          <Property Name="Donations" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Suggestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_MemberHistory_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberHistory" Type="Self.MemberHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MemberHistory">
+              <PropertyRef Name="ClanMember" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClanManagerModelStoreContainer">
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberHistory" EntityType="Self.MemberHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suggestion" EntityType="Self.Suggestion" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MemberHistory_Member" Association="Self.FK_MemberHistory_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberHistory" EntitySet="MemberHistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClanManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ClanManagerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MemberHistory" EntityType="ClanManagerModel.MemberHistory" />
+          <EntitySet Name="Member" EntityType="ClanManagerModel.Member" />
+          <AssociationSet Name="FK_MemberHistory_Member" Association="ClanManagerModel.FK_MemberHistory_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberHistory" EntitySet="MemberHistory" />
+          </AssociationSet>
+          <EntitySet Name="Suggestion" EntityType="ClanManagerModel.Suggestion" />
+        </EntityContainer>
+        <EntityType Name="MemberHistory">
+          <Key>
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Tag" />
+          </Key>
+          <Property Name="Date" Type="Int64" Nullable="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ClanMember" Type="Int32" Nullable="false" />
+          <Property Name="ClanChestCrowns" Type="Int32" Nullable="false" />
+          <Property Name="Donations" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="ClanManagerModel.FK_MemberHistory_Member" FromRole="MemberHistory" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ClanRank" Type="Int32" Nullable="false" />
+          <Property Name="Trophies" Type="Int32" Nullable="false" />
+          <Property Name="IsStillInTheClan" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MemberHistory" Relationship="ClanManagerModel.FK_MemberHistory_Member" FromRole="Member" ToRole="MemberHistory" />
+        </EntityType>
+        <Association Name="FK_MemberHistory_Member">
+          <End Type="ClanManagerModel.Member" Role="Member" Multiplicity="1" />
+          <End Type="ClanManagerModel.MemberHistory" Role="MemberHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MemberHistory">
+              <PropertyRef Name="ClanMember" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Suggestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ClanManagerModelStoreContainer" CdmEntityContainer="ClanManagerEntities">
+          <EntitySetMapping Name="MemberHistory">
+            <EntityTypeMapping TypeName="ClanManagerModel.MemberHistory">
+              <MappingFragment StoreEntitySet="MemberHistory">
+                <ScalarProperty Name="Donations" ColumnName="Donations" />
+                <ScalarProperty Name="ClanChestCrowns" ColumnName="ClanChestCrowns" />
+                <ScalarProperty Name="ClanMember" ColumnName="ClanMember" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member">
+            <EntityTypeMapping TypeName="ClanManagerModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="IsStillInTheClan" ColumnName="IsStillInTheClan" />
+                <ScalarProperty Name="Trophies" ColumnName="Trophies" />
+                <ScalarProperty Name="ClanRank" ColumnName="ClanRank" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suggestion">
+            <EntityTypeMapping TypeName="ClanManagerModel.Suggestion">
+              <MappingFragment StoreEntitySet="Suggestion">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
