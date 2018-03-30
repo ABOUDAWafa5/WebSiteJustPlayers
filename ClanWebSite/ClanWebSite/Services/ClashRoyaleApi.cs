@@ -32,10 +32,10 @@ namespace ClanWebSite.Services
                 client = new HttpClient { BaseAddress = new Uri(apiBaseaddress) };
             }
         }
-      
+
         public TournamentSection GetTournaments()
         {
-            TournamentSection result = new TournamentSection();                        
+            TournamentSection result = new TournamentSection();
             var opened = GetOpenedTournaments();
             if (opened != null && opened.Any())
             {
@@ -45,10 +45,10 @@ namespace ClanWebSite.Services
             var known = GetKnownTournaments();
             if (known != null && known.Any())
             {
-              //  result.All.AddRange(known.Where(s => s.status.ToLower() != "ended"));
+                //  result.All.AddRange(known.Where(s => s.status.ToLower() != "ended"));
             }
 
-           // var allOpened = opened.Where(s => (s.maxCapacity>s.playerCount && s.status.ToLower() != "ended"));
+            // var allOpened = opened.Where(s => (s.maxCapacity>s.playerCount && s.status.ToLower() != "ended"));
             var allKnown = known.Where(s => (s.maxCapacity > s.playerCount && s.status.ToLower() != "ended"));
 
 
@@ -110,7 +110,7 @@ namespace ClanWebSite.Services
             var current = (decimal)timespent / total * 100;
             //int secondsremaining = (int)(timespent / ((starttime-endTime)/100) * (progressBar1.Maximum - progressBar1.Value));
 
-            
+
             // result.All.AddRange(allOpened);
             result.All.AddRange(allKnown);
 
@@ -121,21 +121,35 @@ namespace ClanWebSite.Services
 
         private List<TournamentInfo> GetOpenedTournaments()
         {
-            var requestMessage = new HttpRequestMessage(HttpMethod.Get, "tournaments/open");
+            //var requestMessage = new HttpRequestMessage(HttpMethod.Get, "tournaments/open");
+            //requestMessage.Headers.Add("Auth", apiKey);
+            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //var result = client.SendAsync(requestMessage).Result;
+
+
+
+
+
+
+            //if (result.StatusCode == System.Net.HttpStatusCode.OK)
+            //{
+            //    var stringResult = result.Content.ReadAsStringAsync().Result;
+
+            //    return JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
+            //}
+            //else
+            //{
+            //    return null;
+            //}
+
+            //https://api.royaleapi.com/tournaments/search?name=a b v g d e
+            var address = "tournaments/search?name=a";
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, address);
             requestMessage.Headers.Add("Auth", apiKey);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var result = client.SendAsync(requestMessage).Result;
-
-            if (result.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var stringResult = result.Content.ReadAsStringAsync().Result;
-
-                return JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
-            }
-            else
-            {
-                return null;
-            }
+            var stringResult = result.Content.ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
 
         }
 

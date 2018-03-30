@@ -6874,6 +6874,29 @@ a.list-group-item-danger {
         border-bottom-color: #faebcc;
     }
 
+.panel-custom {
+    border-color: #ffc65d;
+}
+
+    .panel-custom > .panel-heading {
+        color: White;
+        background-color: #FF9800;
+        border-color: #ffc65d;
+    }
+
+        .panel-custom > .panel-heading + .panel-collapse > .panel-body {
+            border-top-color: #ffc65d;
+        }
+
+        .panel-custom > .panel-heading .badge {
+            color: White;
+            background-color: #FF9800;
+        }
+
+    .panel-custom > .panel-footer + .panel-collapse > .panel-body {
+        border-bottom-color: #ffc65d;
+    }
+
 .panel-danger {
     border-color: #ebccd1;
 }
