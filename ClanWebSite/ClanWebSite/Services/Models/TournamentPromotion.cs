@@ -7,6 +7,7 @@ namespace ClanWebSite.Services.Models
 {
     public class TournamentPromotion
     {
+        public string Title { get; set; }
         public TournamentInfo TournamentLeft { get; set; }
         public TournamentInfo TournamentMiddle { get; set; }
         public TournamentInfo TournamentRight { get; set; }

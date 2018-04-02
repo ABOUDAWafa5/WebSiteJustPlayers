@@ -28,9 +28,14 @@ namespace ClanWebSite.Services.Models
 
             foreach (var tournamentInfo in list)
             {
+                if (tournamentInfo.startTime == null)
+                {
+                    tournamentInfo.startTime = tournamentInfo.createTime;
+                }
+
                 var realStartDate = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                     .AddSeconds(long.Parse(tournamentInfo.startTime.ToString())).ToLocalTime();
-
+                
                 if (tournamentInfo.status.ToLower() == "inprogress")
                 {
                     while (realStartDate > currentDateTime)
@@ -105,6 +110,17 @@ namespace ClanWebSite.Services.Models
                     if (firstObject.status != "inPreparation" && secondObject.status == "inPreparation")
                         return 2;
                 }
+            }
+
+
+            if (firstObject.startTime == null)
+            {
+                firstObject.startTime = firstObject.createTime;
+            }
+
+            if (secondObject.startTime == null)
+            {
+                secondObject.startTime = secondObject.createTime;
             }
 
             var datetimeFirst = new DateTime(1970, 1, 1, 0, 0, 0, 0)

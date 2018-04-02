@@ -6879,8 +6879,8 @@ a.list-group-item-danger {
 }
 
     .panel-custom > .panel-heading {
-        color: White;
-        background-color: #FF9800;
+        color: #FF9800;
+        background-color: rgba(255, 198, 93, 0.3);
         border-color: #ffc65d;
     }
 
@@ -6889,8 +6889,8 @@ a.list-group-item-danger {
         }
 
         .panel-custom > .panel-heading .badge {
-            color: White;
-            background-color: #FF9800;
+            color: #FF9800;
+            background-color: rgba(255, 198, 93, 0.3);
         }
 
     .panel-custom > .panel-footer + .panel-collapse > .panel-body {

@@ -33,6 +33,43 @@ namespace ClanWebSite.Services
             }
         }
 
+        public List<TournamentInfo> SearchTournaments()
+        {
+            TournamentSection result = new TournamentSection();
+            var opened = GetOpenedTournaments();
+            if (opened != null && opened.Any())
+            {
+                result.All.AddRange(opened.Where(s => s.status.ToLower() != "ended"));
+            }
+
+            var known = GetKnownTournaments();
+            if (known != null && known.Any())
+            {
+                //  result.All.AddRange(known.Where(s => s.status.ToLower() != "ended"));
+            }
+
+            // var allOpened = opened.Where(s => (s.maxCapacity>s.playerCount && s.status.ToLower() != "ended"));
+            var allKnown = known.Where(s => (s.maxCapacity > s.playerCount && s.status.ToLower() != "ended"));
+
+
+            result.All.Sort();
+            var allSearchJoinable = result.All.Where(s => s.maxCapacity > s.capacity).ToList();
+            allSearchJoinable.Sort();
+
+            List<TournamentInfo> realCheckedJoinable = new List<TournamentInfo>();
+            foreach (var tournamentInfo in allSearchJoinable)
+            {
+                GetTournamentInfo(tournamentInfo.tag);
+                if (tournamentInfo.playerCount < tournamentInfo.maxCapacity)
+                {
+                    realCheckedJoinable.Add(tournamentInfo);
+                    break;
+                }
+            }
+
+            return realCheckedJoinable.ToList();
+        }
+
         public TournamentSection GetTournaments()
         {
             TournamentSection result = new TournamentSection();
@@ -53,31 +90,35 @@ namespace ClanWebSite.Services
 
 
             result.All.Sort();
-            var joinable = result.All.Where(s => s.maxCapacity > s.capacity).ToList();
-            joinable.Sort();
+            var allSearchJoinable = result.All.Where(s => s.maxCapacity > s.capacity).ToList();
+            allSearchJoinable.Sort();
 
-            var fisrtObjest = joinable.FirstOrDefault();
+            List<TournamentInfo> realCheckedJoinable = new List<TournamentInfo>();
+            foreach (var tournamentInfo in allSearchJoinable)
+            {
+                GetTournamentInfo(tournamentInfo.tag);
+                if (tournamentInfo.playerCount < tournamentInfo.maxCapacity)
+                {
+                    realCheckedJoinable.Add(tournamentInfo);
+                    break;
+                }
+            }
 
-            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddSeconds(long.Parse(fisrtObjest.startTime.ToString())).ToLocalTime();
+            // var promotionTournaments = allSearchJoinable.Skip(0).Take(6).ToList();
 
-
-            var starttime = long.Parse(fisrtObjest.startTime.ToString());
-            var endTime = long.Parse(fisrtObjest.endTime.ToString());
-            var timespent = (int)DateTime.Now.ToLocalTime().Subtract(new DateTime(1970, 1, 1)).TotalSeconds - (long.Parse(fisrtObjest.startTime.ToString()));
-            var total = long.Parse(endTime.ToString()) - long.Parse(starttime.ToString());
-
-            var promotionTournaments = joinable.Skip(0).Take(6).ToList();
+             var promotionTournaments = allSearchJoinable.Skip(0).Take(6).ToList();
+            
             promotionTournaments.Sort();
             TournamentInfo.SetRealStartDate(promotionTournaments);
 
             int count = 1;
             result.TournamentPromotion = new List<TournamentPromotion>();
             var promotion = new TournamentPromotion();
-            foreach (var promotionTournament in promotionTournaments)
+            foreach (var promotionTournament in allSearchJoinable)
             {
                 if (count == 1)
                 {
+                    promotion.Title = "Open";
                     result.TournamentPromotion.Add(promotion);
                     promotion.TournamentLeft = promotionTournament;
                 }
@@ -91,7 +132,7 @@ namespace ClanWebSite.Services
                 }
                 if (count == 4)
                 {
-                    promotion = new TournamentPromotion();
+                    promotion = new TournamentPromotion {Title = "Highest Players Capacity"};
                     result.TournamentPromotion.Add(promotion);
                     promotion.TournamentLeft = promotionTournament;
                 }
@@ -106,12 +147,6 @@ namespace ClanWebSite.Services
 
                 count++;
             }
-
-            var current = (decimal)timespent / total * 100;
-            //int secondsremaining = (int)(timespent / ((starttime-endTime)/100) * (progressBar1.Maximum - progressBar1.Value));
-
-
-            // result.All.AddRange(allOpened);
             result.All.AddRange(allKnown);
 
 
@@ -155,7 +190,7 @@ namespace ClanWebSite.Services
 
         private List<TournamentInfo> GetKnownTournaments()
         {
-            var requestMessage = new HttpRequestMessage(HttpMethod.Get, " tournaments/known");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, "tournaments/known");
             requestMessage.Headers.Add("Auth", apiKey);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var result = client.SendAsync(requestMessage).Result;
@@ -164,6 +199,24 @@ namespace ClanWebSite.Services
                 var stringResult = result.Content.ReadAsStringAsync().Result;
 
                 return JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private TournamentInfo GetTournamentInfo(string tag)
+        {
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, $"tournaments/{tag}");
+            requestMessage.Headers.Add("Auth", apiKey);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var result = client.SendAsync(requestMessage).Result;
+            if (result.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var stringResult = result.Content.ReadAsStringAsync().Result;
+
+                return JsonConvert.DeserializeObject<TournamentInfo>(stringResult);
             }
             else
             {
