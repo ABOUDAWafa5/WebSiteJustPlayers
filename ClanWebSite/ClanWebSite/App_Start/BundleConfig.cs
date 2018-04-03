@@ -44,7 +44,8 @@ namespace ClanWebSite
                       "~/Content/style.css",
                       "~/Content/font-awesome.css",
                       "~/Content/chocolat.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/Navigation.css"));
         }
     }
 }
