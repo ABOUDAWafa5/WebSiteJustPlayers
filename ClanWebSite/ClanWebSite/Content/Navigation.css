@@ -31,12 +31,16 @@ body{
     border: solid 2px rgba(119, 119, 119, 0);
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a.top:focus {
+.navbar-default .navbar-nav > li > a.top-li:hover, .navbar-default .navbar-nav > li > a.top-li:focus {
     color: #777;
-    border: solid 2px #777;
+    border: solid 2px #FF9800;
     background: none;
     -ms-border-radius: 20px;
     border-radius: 20px;
+}
+
+.navbar-nav.top li:after {
+    content: none;
 }
 
 .navbar-me {
