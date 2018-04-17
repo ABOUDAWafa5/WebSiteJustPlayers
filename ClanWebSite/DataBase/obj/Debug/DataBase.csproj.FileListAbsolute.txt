@@ -21,7 +21,6 @@ C:\Projects\ClanWebSite\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.CoreCompi
 C:\Projects\ClanWebSite\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.CopyComplete
 C:\Projects\ClanWebSite\ClanWebSite\DataBase\obj\Debug\DataBase.dll
 C:\Projects\ClanWebSite\ClanWebSite\DataBase\obj\Debug\DataBase.pdb
-<<<<<<< HEAD
 E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\DataBase.dll.config
 E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\DataBase.dll
 E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\DataBase.pdb
@@ -34,17 +33,3 @@ E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.Co
 E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.CopyComplete
 E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.dll
 E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.pdb
-=======
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\DataBase.dll.config
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\DataBase.dll
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\DataBase.pdb
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\EntityFramework.dll
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\EntityFramework.SqlServer.dll
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\EntityFramework.xml
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\EntityFramework.SqlServer.xml
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.csprojResolveAssemblyReference.cache
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.CoreCompileInputs.cache
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.CopyComplete
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.dll
-C:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.pdb
->>>>>>> 96d1d2229e3f39bf92e5a5205db8ec264035ba80

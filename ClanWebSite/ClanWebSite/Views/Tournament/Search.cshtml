@@ -1,27 +1,8 @@
-﻿@model ClanWebSite.Services.Models.TournamentInfo 
+﻿
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Tournament name is automatically copied. Paste it in the Clash Royale search to join the tournament</h2>
+<h2>Search</h2>
 
-<h2>Tournament Name: @Model.name </h2>
-
-<button id="btnCopy" class="transparent_btn orange pull-right btnClipboard hidden" data-clipboard-text="@Model.name">Copy</button>
-
-<script>
-    
-    $(function () {
-        var text = $("#btnCopy").attr('data-clipboard-text');
-        copyToClipboard(text);
-
-        function copyToClipboard(text) {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val(text).select();
-            document.execCommand("copy");
-            $temp.remove();
-        }
-    });
-</script>
