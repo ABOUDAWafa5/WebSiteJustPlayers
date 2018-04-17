@@ -60,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -149,6 +150,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\InMemoryCache.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TournamentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,6 +185,7 @@
     <Content Include="Images\l2.png" />
     <Content Include="Images\l3.png" />
     <Content Include="Images\left.png" />
+    <Content Include="Images\logo.jpg" />
     <Content Include="Images\p1.jpg" />
     <Content Include="Images\p2.jpg" />
     <Content Include="Images\p3.jpg" />

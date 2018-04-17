@@ -14,6 +14,7 @@ namespace ClanWebSite.Services
         private static string apiKey;
         private static HttpClient client;
         private static string apiBaseaddress = "http://api.cr-api.com/";
+        private static string latestFoundTournament = string.Empty;
 
         public ClashRoyaleApi()
         {
@@ -33,41 +34,100 @@ namespace ClanWebSite.Services
             }
         }
 
-        public List<TournamentInfo> SearchTournaments()
+        public TournamentInfo SearchTournaments()
         {
-            TournamentSection result = new TournamentSection();
-            var opened = GetOpenedTournaments();
-            if (opened != null && opened.Any())
+            if (latestFoundTournament != string.Empty)
             {
-                result.All.AddRange(opened.Where(s => s.status.ToLower() != "ended"));
+               var tournamentInfo =  GetTournamentInfo(latestFoundTournament);
+                if (tournamentInfo.playerCount < tournamentInfo.maxCapacity)
+                {
+                    return tournamentInfo;
+                }
             }
 
-            var known = GetKnownTournaments();
-            if (known != null && known.Any())
+            while (true)
             {
-                //  result.All.AddRange(known.Where(s => s.status.ToLower() != "ended"));
+                TournamentSection result = new TournamentSection();
+                var opened = GetOpenedTournaments();
+                if (opened != null && opened.Any())
+                {
+                    result.All.AddRange(opened.Where(s => s.status.ToLower() != "inprogress"));
+                }
+
+               // var known = GetKnownTournaments();
+                //if (known != null && known.Any())
+                //{
+                    //  result.All.AddRange(known.Where(s => s.status.ToLower() != "inprogress"));
+               // }
+
+                // var allOpened = opened.Where(s => (s.maxCapacity>s.playerCount && s.status.ToLower() != "ended"));
+                //var allKnown = known.Where(s => (s.maxCapacity > s.playerCount && s.status.ToLower() != "ended"));
+
+
+                result.All.Sort();
+                var allSearchJoinable = result.All.Where(s => s.maxCapacity > s.capacity).ToList();
+                allSearchJoinable.Sort();
+
+                var tournamentInfo = IsTournamentActive(allSearchJoinable);
+                if (tournamentInfo!=null) return tournamentInfo;
+
+
+                var searched = GetActiveTournamentsbySearch("я в е р т ъ у и о п а с д ф г х");
+
+                tournamentInfo = IsTournamentActive(searched);
+                if (tournamentInfo != null) return tournamentInfo;
+
+                searched = GetActiveTournamentsbySearch("й к л з ь ц ж б н м");
+
+                tournamentInfo = IsTournamentActive(searched);
+                if (tournamentInfo != null) return tournamentInfo;
+
+                searched = GetActiveTournamentsbySearch("q w e r t");
+
+                tournamentInfo = IsTournamentActive(searched);
+                if (tournamentInfo != null) return tournamentInfo;
+
+                searched = GetActiveTournamentsbySearch("1 2 3 4 5 6 7 8 9 0");
+
+                tournamentInfo = IsTournamentActive(searched);
+                if (tournamentInfo != null) return tournamentInfo;
+
+                searched = GetActiveTournamentsbySearch("y u i o p [ ]");
+
+                tournamentInfo = IsTournamentActive(searched);
+                if (tournamentInfo != null) return tournamentInfo;
+
+                searched = GetActiveTournamentsbySearch("a s d f g h j");
+
+                tournamentInfo = IsTournamentActive(searched);
+                if (tournamentInfo != null) return tournamentInfo;
+
+                searched = GetActiveTournamentsbySearch("k l z x c v b");
+
+                tournamentInfo = IsTournamentActive(searched);
+                if (tournamentInfo != null) return tournamentInfo;
+
+                searched = GetActiveTournamentsbySearch("n m ; ' , . / ?");
+
+                tournamentInfo = IsTournamentActive(searched);
+                if (tournamentInfo != null) return tournamentInfo;
+
             }
+        }
 
-            // var allOpened = opened.Where(s => (s.maxCapacity>s.playerCount && s.status.ToLower() != "ended"));
-            var allKnown = known.Where(s => (s.maxCapacity > s.playerCount && s.status.ToLower() != "ended"));
-
-
-            result.All.Sort();
-            var allSearchJoinable = result.All.Where(s => s.maxCapacity > s.capacity).ToList();
-            allSearchJoinable.Sort();
-
-            List<TournamentInfo> realCheckedJoinable = new List<TournamentInfo>();
+        private TournamentInfo IsTournamentActive(List<TournamentInfo> allSearchJoinable)
+        {
             foreach (var tournamentInfo in allSearchJoinable)
             {
                 GetTournamentInfo(tournamentInfo.tag);
                 if (tournamentInfo.playerCount < tournamentInfo.maxCapacity)
                 {
-                    realCheckedJoinable.Add(tournamentInfo);
-                    break;
+                    {
+                        return tournamentInfo;
+                    }
                 }
             }
-
-            return realCheckedJoinable.ToList();
+            return null;
         }
 
         public TournamentSection GetTournaments()
@@ -156,36 +216,42 @@ namespace ClanWebSite.Services
 
         private List<TournamentInfo> GetOpenedTournaments()
         {
-            //var requestMessage = new HttpRequestMessage(HttpMethod.Get, "tournaments/open");
-            //requestMessage.Headers.Add("Auth", apiKey);
-            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //var result = client.SendAsync(requestMessage).Result;
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, "tournaments/open");
+            requestMessage.Headers.Add("Auth", apiKey);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var result = client.SendAsync(requestMessage).Result;
 
 
 
 
 
 
-            //if (result.StatusCode == System.Net.HttpStatusCode.OK)
-            //{
-            //    var stringResult = result.Content.ReadAsStringAsync().Result;
+            if (result.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var stringResult = result.Content.ReadAsStringAsync().Result;
 
-            //    return JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
-            //}
-            //else
-            //{
-            //    return null;
-            //}
+                return JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
+            }
+            else
+            {
+                return null;
+            }
 
+        }
+
+        private List<TournamentInfo> GetActiveTournamentsbySearch(string name)
+        {
             //https://api.royaleapi.com/tournaments/search?name=a b v g d e
-            var address = "tournaments/search?name=a";
+            var address = $"tournaments/search?name={name}";
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, address);
             requestMessage.Headers.Add("Auth", apiKey);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var result = client.SendAsync(requestMessage).Result;
             var stringResult = result.Content.ReadAsStringAsync().Result;
-            return JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
+             var tournaments = JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
 
+            var activeTournaments = tournaments?.Where(p => p.maxCapacity > p.playerCount && p.status == "inprogress");
+            return activeTournaments?.ToList();
         }
 
         private List<TournamentInfo> GetKnownTournaments()
