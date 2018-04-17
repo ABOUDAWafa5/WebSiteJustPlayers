@@ -21,15 +21,3 @@ C:\Projects\ClanWebSite\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.CoreCompi
 C:\Projects\ClanWebSite\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.CopyComplete
 C:\Projects\ClanWebSite\ClanWebSite\DataBase\obj\Debug\DataBase.dll
 C:\Projects\ClanWebSite\ClanWebSite\DataBase\obj\Debug\DataBase.pdb
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\DataBase.dll.config
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\DataBase.dll
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\DataBase.pdb
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\EntityFramework.dll
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\EntityFramework.SqlServer.dll
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\EntityFramework.xml
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\bin\Debug\EntityFramework.SqlServer.xml
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.csprojResolveAssemblyReference.cache
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.CoreCompileInputs.cache
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.csproj.CopyComplete
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.dll
-E:\Projects\WebSiteJustPlayers\ClanWebSite\DataBase\obj\Debug\DataBase.pdb
