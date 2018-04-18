@@ -56,25 +56,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand site-logo" href="#">LOCUS</a>
+                <a class="navbar-brand site-logo" href="#">
+                    <img src="~/Images/logo.jpg" />
+                </a>
             </div>
       
             <div class="collapse navbar-collapse navbar-right  header-right-menu" id="navbar-primary-collapse">
                 <ul class="nav navbar-nav top">
                     <li class="page-scroll">
-                        <a class="top-li" href="javascript:" id="about-menu">About</a>
+                        <a class="top-li" href="\" id="about-menu">Home</a>
                     </li>
                     <li>
-                        <a class="top-li" href="javascript:" id="services-menu">Services</a>
-                    </li>
-                    <li>
-                        <a class="top-li" href="javascript:" id="Clients-menu">Clients</a>
-                    </li>
-                    <li>
-                        <a class="top-li" href="javascript:" id="contact-menu">Contact</a>
-                    </li>
-                    <li>
-                        <a class="top-li" href="javascript:" id="project-menu">Projects</a>
+                        <a class="top-li" href="~/Tournament/Search" id="services-menu">Tournament</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -82,101 +75,7 @@
     </nav>
 </section>
 <!-- end of navbar-->
-<!-- banner -->
-<div class="banner">
-    <div class="agileinfo-dot">
-        <div class="agileits-logo">
-            <h1><a href="\">JUST <span>Players</span></a>
-            </h1>
-            <h5>Tag: <span>#8GPYGYCV</span></h5>
-        </div>
-        <div class="header-top">
-            <div class="container">
-                <div class="header-top-info">
-                    <nav class="navbar navbar-default">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-                            <nav>
-                                <ul class="nav navbar-nav">
-                                    <li class="active"><a href="\">Home</a></li>
-                                    <li><a href="#rules" class="scroll">Rules</a></li>
-                                    <li><a href="#statistics" class="scroll">Statistics</a></li>
-                                    <li><a href="#team" class="scroll">Team</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- /.navbar-collapse -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div class="w3layouts-banner-info">
-            <div class="container">
-                <div class="w3layouts-banner-slider">
-                    <div class="w3layouts-banner-top-slider">
-                        <div class="slider">
-                            <div class="callbacks_container">
-                                <ul class="rslides callbacks callbacks1" id="slider4">
-                                    <li>
-                                        <div class="banner_text">
-                                            <h3>Team Statistics</h3>
-                                            <p>Team player activity details determine the rank and role in the team.</p>
-                                            <div class="w3-button">
-                                                <a href="#statistics">Read More</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="banner_text">
-                                            <h3>Facebook Group</h3>
-                                            <p>Join our crew to support, improve and develop together.</p>
-                                            <div class="w3-button">
-                                                <a href="https://www.facebook.com/groups/1557722684304649/" target="_blank">Join Now</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="clearfix"> </div>
-                            <script>
-                                // You can also use "$(window).load(function() {"
-                                $(function() {
-                                    // Slideshow 4
-                                    $("#slider4").responsiveSlides({
-                                        auto: true,
-                                        pager: true,
-                                        nav: true,
-                                        speed: 500,
-                                        namespace: "callbacks",
-                                        before: function() {
-                                            $('.events').append("<li>before event fired.</li>");
-                                        },
-                                        after: function() {
-                                            $('.events').append("<li>after event fired.</li>");
-                                        }
-                                    });
-
-                                });
-                            </script>
-                            <!--banner Slider starts Here-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- //banner -->
 @RenderBody()
 
 <!-- footer -->
