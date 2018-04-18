@@ -15,11 +15,16 @@ namespace ClanWebSite.Controllers
         private static InMemoryCache memoryCache = new InMemoryCache();
         // GET: Tournament
         public ActionResult Search()
+        {           
+            return View();
+        }
+
+
+        public JsonResult GetTournament()
         {
-        
             var clashRoyaleApi = new ClashRoyaleApi();
             var tournament = memoryCache.GetOrSet("tournament", () => clashRoyaleApi.SearchTournaments());
-            return View(tournament);
+            return Json(tournament, JsonRequestBehavior.AllowGet);
         }
     }
 }

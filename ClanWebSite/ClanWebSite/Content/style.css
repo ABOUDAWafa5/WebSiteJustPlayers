@@ -336,6 +336,7 @@ body{
     padding: 1em;
     z-index: 1;
 }
+
 .w3-button a {
     color: #FFFFFF;
     font-size: 1em;
@@ -391,7 +392,12 @@ body{
     line-height: 1.8em;
     margin: 1em auto 0;
     width: 65%;
-} 
+}
+
+.tournament{
+    background-color:white;
+}
+
 .about-w3lsrow {
     margin: 4em 0 0 0;
 }

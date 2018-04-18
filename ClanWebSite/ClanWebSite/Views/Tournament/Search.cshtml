@@ -1,78 +1,41 @@
-﻿@model ClanWebSite.Services.Models.TournamentInfo 
-@{
+﻿@{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @Styles.Render("~/Content/spinner")
 
-<div class="about container" id="rules">
-    <div class="spinner-wrapper container">
-        <div class="cssload-square">
-            <div><div><div><div><div></div></div></div></div></div>
-            <div><div><div><div><div></div></div></div></div></div>
+<div class="tournament" id="tournament">
+    <div class="container">
+        <div id="spinner" class="spinner-wrapper container">
+            <div class="cssload-square">
+                <div><div><div><div><div></div></div></div></div></div>
+                <div><div><div><div><div></div></div></div></div></div>
+            </div>
+            <div class="cssload-square cssload-two">
+                <div><div><div><div><div></div></div></div></div></div>
+                <div><div><div><div><div></div></div></div></div></div>
+            </div>
         </div>
-        <div class="cssload-square cssload-two">
-            <div><div><div><div><div></div></div></div></div></div>
-            <div><div><div><div><div></div></div></div></div></div>
-        </div>
-    </div>
-    <div>
-        
-    </div>
-    <div class="tournament-info">
-        
-        <h2>Tournament name is automatically copied. Paste it in the Clash Royale search to join the tournament</h2>
-        <h2>@Model.name </h2>
-        <h2>@Model.maxCapacity </h2>
-        <h2>@Model.type </h2>
-        <h2>@Model.tag </h2>
-        <h2>@Model.status </h2>
-        <h2>@Model.capacity </h2>
-        <h2>@Model.playerCount </h2>
+        <div>
 
-        <button id="btnCopy" class="transparent_btn orange pull-right btnClipboard hidden" data-clipboard-text="@Model.name">Copy</button>
+        </div>
+        <div id="tournamentDetails" class="tournament-info" style="display: none">
+            <h2>Name:<span id="tournamentName"></span>  @*@Model.name*@ </h2>
+            <h2>Description: <span id="tournamentDescription"></span> @*@Model.name*@ </h2>
+            <h2>Max Capacity: <span id="tournamentMaxCapacity"></span> @*@Model.maxCapacity*@ </h2>
+            <h2>Type: <span id="tournamentDescription"></span> @*@Model.type*@ </h2>
+            <h2>Tag: <span id="tournamentDescription"></span> @*@Model.tag*@ </h2>
+            <h2>Status: <span id="tournamentDescription"></span> @*@Model.status*@ </h2>
+            <h2>Capacity: <span id="tournamentDescription"></span> @*@Model.capacity*@ </h2>
+            <h2>Player Count: <span id="tournamentDescription"></span> @*@Model.playerCount*@ </h2>
+            <h5>Tournament name is automatically copied in the clipboard</h5>
+            <button id="btnCopy" class="transparent_btn orange pull-right btnClipboard hidden" data-clipboard-text="asd@*@Model.name*@">Copy</button>
+        </div>
     </div>
 </div>
-
-<script>
-
-    $(document).ready(function() {
-        $.ajax({
-            type: 'POST',
-            url: '../include/ListOfCities.php',
-            dataType: "json",
-            data: {
-                Country: "Japan"
-            },
-            success: function(data) {
-                console.log(data);
-                var city = ('#city');
-                $(city).empty();
-                for (var i = 0; i < data.length; i++) {
-                    $(city).append('<option id=' + data[i].sysid + ' value=' + data[i].city_name + '>' + data[i].city_name + '</option>');
-
-                }
-            }
-
-        });
-    });
-
-    $(function () {
-        var text = $("#btnCopy").attr('data-clipboard-text');
-        copyToClipboard(text);
-
-        $("#btnCopy").click(function (e) {
-            var text = $(e.currentTarget).attr('data-clipboard-text');
-            copyToClipboard(text);
-        });
-
-        function copyToClipboard(text) {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val(text).select();
-            document.execCommand("copy");
-            $temp.remove();
-        }
-    });
-</script>
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("/Scripts/CustomScripts/tournaments.js")"></script>    
+}
+@Scripts.Render(" ~/bundles/tournaments")

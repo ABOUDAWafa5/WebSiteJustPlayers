@@ -31,8 +31,13 @@ namespace ClanWebSite
                       "~/Scripts/responsiveslides.min.js",
                       "~/Scripts/SmoothScroll.min.js",
                        "~/Scripts/jarallax.js",
-                       "~/Scripts/mainPageCustom.js"
+                       "~/Scripts/CustomScripts/mainPageCustom.js"
                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/tournaments").Include(                   
+                    "~/Scripts/CustomScripts/tournaments.js"
+                    ));
+            
 
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
@@ -49,6 +54,8 @@ namespace ClanWebSite
 
             bundles.Add(new StyleBundle("~/Content/spinner").Include(
                 "~/Content/spinner.css"));
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

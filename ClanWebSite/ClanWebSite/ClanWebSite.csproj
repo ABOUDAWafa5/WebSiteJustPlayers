@@ -213,6 +213,7 @@
     <None Include="Scripts\jquery-1.11.1.intellisense.js" />
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\controls.js" />
+    <Content Include="Scripts\CustomScripts\tournaments.js" />
     <Content Include="Scripts\easing.js" />
     <Content Include="Scripts\grid-custom.js" />
     <Content Include="Scripts\jarallax.js" />
@@ -226,7 +227,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\mainPageCustom.js" />
+    <Content Include="Scripts\CustomScripts\mainPageCustom.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\move-top.js" />
     <Content Include="Scripts\respond.js" />

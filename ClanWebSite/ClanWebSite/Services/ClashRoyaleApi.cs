@@ -120,7 +120,7 @@ namespace ClanWebSite.Services
             foreach (var tournamentInfo in allSearchJoinable)
             {
                 GetTournamentInfo(tournamentInfo.tag);
-                if (tournamentInfo.playerCount < tournamentInfo.maxCapacity && tournamentInfo.status=="inprogress")
+                if (tournamentInfo.playerCount < tournamentInfo.maxCapacity && tournamentInfo.status.ToLower() =="inprogress")
                 {
                     {
                         return tournamentInfo;
@@ -249,11 +249,19 @@ namespace ClanWebSite.Services
             requestMessage.Headers.Add("Auth", apiKey);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var result = client.SendAsync(requestMessage).Result;
-            var stringResult = result.Content.ReadAsStringAsync().Result;
-             var tournaments = JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
+            if (result.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var stringResult = result.Content.ReadAsStringAsync().Result;
+                var tournaments = JsonConvert.DeserializeObject<List<TournamentInfo>>(stringResult);
 
-            var activeTournaments = tournaments?.Where(p => p.maxCapacity > p.playerCount && p.status == "inprogress");
-            return activeTournaments?.ToList();
+
+                var activeTournaments = tournaments?.Where(p => p.maxCapacity > p.playerCount && p.status.ToLower() == "inprogress" && p.type == "open");
+                return activeTournaments?.ToList();
+            }
+            else
+            {
+                return new List<TournamentInfo>();
+            }
         }
 
         private List<TournamentInfo> GetKnownTournaments()
