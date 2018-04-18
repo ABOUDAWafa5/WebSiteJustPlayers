@@ -18,6 +18,7 @@ namespace ClanWebSite.Services.Models
         public int createTime { get; set; }
         public object startTime { get; set; }
         public object endTime { get; set; }
+        public string description { get; set; }
 
         public DateTime realStartDate { get; set; }
 

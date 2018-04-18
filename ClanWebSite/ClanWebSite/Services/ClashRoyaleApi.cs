@@ -120,7 +120,7 @@ namespace ClanWebSite.Services
             foreach (var tournamentInfo in allSearchJoinable)
             {
                 GetTournamentInfo(tournamentInfo.tag);
-                if (tournamentInfo.playerCount < tournamentInfo.maxCapacity)
+                if (tournamentInfo.playerCount < tournamentInfo.maxCapacity && tournamentInfo.status=="inprogress")
                 {
                     {
                         return tournamentInfo;
@@ -140,13 +140,15 @@ namespace ClanWebSite.Services
             }
 
             var known = GetKnownTournaments();
+            var allKnown = new List<TournamentInfo>();
             if (known != null && known.Any())
             {
                 //  result.All.AddRange(known.Where(s => s.status.ToLower() != "ended"));
+                allKnown = known.Where(s => (s.maxCapacity > s.playerCount && s.status.ToLower() != "ended")).ToList();
             }
 
             // var allOpened = opened.Where(s => (s.maxCapacity>s.playerCount && s.status.ToLower() != "ended"));
-            var allKnown = known.Where(s => (s.maxCapacity > s.playerCount && s.status.ToLower() != "ended"));
+           
 
 
             result.All.Sort();

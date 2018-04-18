@@ -169,6 +169,7 @@
     <Content Include="Content\chocolat.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Navigation.css" />
+    <Content Include="Content\spinner.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -182,6 +183,7 @@
     <Content Include="Images\arrows.png" />
     <Content Include="Images\close.png" />
     <Content Include="Images\dott.png" />
+    <Content Include="Images\imageLogo.png" />
     <Content Include="Images\l2.png" />
     <Content Include="Images\l3.png" />
     <Content Include="Images\left.png" />
@@ -197,11 +199,6 @@
     <Content Include="Images\right.png" />
     <Content Include="Images\t1.jpg" />
     <Content Include="Images\t2.jpg" />
-    <Content Include="Images\t3.jpg" />
-    <Content Include="Images\t4.jpg" />
-    <Content Include="Images\ts1.jpg" />
-    <Content Include="Images\ts2.jpg" />
-    <Content Include="Images\ts3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -4,17 +4,68 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Tournament name is automatically copied. Paste it in the Clash Royale search to join the tournament</h2>
+@Styles.Render("~/Content/spinner")
 
-<h2>Tournament Name: @Model.name </h2>
+<div class="about container" id="rules">
+    <div class="spinner-wrapper container">
+        <div class="cssload-square">
+            <div><div><div><div><div></div></div></div></div></div>
+            <div><div><div><div><div></div></div></div></div></div>
+        </div>
+        <div class="cssload-square cssload-two">
+            <div><div><div><div><div></div></div></div></div></div>
+            <div><div><div><div><div></div></div></div></div></div>
+        </div>
+    </div>
+    <div>
+        
+    </div>
+    <div class="tournament-info">
+        
+        <h2>Tournament name is automatically copied. Paste it in the Clash Royale search to join the tournament</h2>
+        <h2>@Model.name </h2>
+        <h2>@Model.maxCapacity </h2>
+        <h2>@Model.type </h2>
+        <h2>@Model.tag </h2>
+        <h2>@Model.status </h2>
+        <h2>@Model.capacity </h2>
+        <h2>@Model.playerCount </h2>
 
-<button id="btnCopy" class="transparent_btn orange pull-right btnClipboard hidden" data-clipboard-text="@Model.name">Copy</button>
+        <button id="btnCopy" class="transparent_btn orange pull-right btnClipboard hidden" data-clipboard-text="@Model.name">Copy</button>
+    </div>
+</div>
 
 <script>
-    
+
+    $(document).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: '../include/ListOfCities.php',
+            dataType: "json",
+            data: {
+                Country: "Japan"
+            },
+            success: function(data) {
+                console.log(data);
+                var city = ('#city');
+                $(city).empty();
+                for (var i = 0; i < data.length; i++) {
+                    $(city).append('<option id=' + data[i].sysid + ' value=' + data[i].city_name + '>' + data[i].city_name + '</option>');
+
+                }
+            }
+
+        });
+    });
+
     $(function () {
         var text = $("#btnCopy").attr('data-clipboard-text');
         copyToClipboard(text);
+
+        $("#btnCopy").click(function (e) {
+            var text = $(e.currentTarget).attr('data-clipboard-text');
+            copyToClipboard(text);
+        });
 
         function copyToClipboard(text) {
             var $temp = $("<input>");

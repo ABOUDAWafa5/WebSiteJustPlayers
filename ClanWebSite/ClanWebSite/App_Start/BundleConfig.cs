@@ -46,6 +46,9 @@ namespace ClanWebSite
                       "~/Content/chocolat.css",
                       "~/Content/site.css",
                       "~/Content/Navigation.css"));
+
+            bundles.Add(new StyleBundle("~/Content/spinner").Include(
+                "~/Content/spinner.css"));
         }
     }
 }
