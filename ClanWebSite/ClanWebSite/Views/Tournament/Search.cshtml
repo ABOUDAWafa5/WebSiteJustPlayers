@@ -4,7 +4,6 @@
 }
 
 @Styles.Render("~/Content/spinner")
-
 <div class="tournament" id="tournament">
     <div class="container">
         <div id="spinner" class="spinner-wrapper container">
@@ -17,20 +16,39 @@
                 <div><div><div><div><div></div></div></div></div></div>
             </div>
         </div>
-        <div>
-
-        </div>
         <div id="tournamentDetails" class="tournament-info" style="display: none">
-            <h2>Name:<span id="tournamentName"></span>  @*@Model.name*@ </h2>
-            <h2>Description: <span id="tournamentDescription"></span> @*@Model.name*@ </h2>
-            <h2>Max Capacity: <span id="tournamentMaxCapacity"></span> @*@Model.maxCapacity*@ </h2>
-            <h2>Type: <span id="tournamentDescription"></span> @*@Model.type*@ </h2>
-            <h2>Tag: <span id="tournamentDescription"></span> @*@Model.tag*@ </h2>
-            <h2>Status: <span id="tournamentDescription"></span> @*@Model.status*@ </h2>
-            <h2>Capacity: <span id="tournamentDescription"></span> @*@Model.capacity*@ </h2>
-            <h2>Player Count: <span id="tournamentDescription"></span> @*@Model.playerCount*@ </h2>
-            <h5>Tournament name is automatically copied in the clipboard</h5>
-            <button id="btnCopy" class="transparent_btn orange pull-right btnClipboard hidden" data-clipboard-text="asd@*@Model.name*@">Copy</button>
+            <h1><span id="tournamentName"></span></h1>
+            <button id="btnCopy" class="transparent_btn orange pull-right btnClipboard" data-clipboard-text="asd@*@Model.name*@">Copy</button>
+            <h3><span id="tournamentDescription"></span></h3>
+            <h3><span id="tournamentStarted"></span></h3>
+            <div class="row">
+                <div class="text-center col-md-4">
+                    <div class="tournament-details ">
+                        <i class="far fa-clock"></i>
+                        <h2>
+                            <span id="tournamentStatus"></span> @*@Model.type*@
+                        </h2>
+                    </div>
+                </div>
+                <div class="text-center col-md-4">
+                    <div class="tournament-details">
+                        <i class=" fas fa-lock-open" aria-hidden="true"></i>
+                        <h2>
+                            <span id="tournamentType"></span> @*@Model.type*@
+                        </h2>
+                    </div>
+                </div>
+                <div class="text-center col-md-4">
+                    <div class="tournament-details">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <h2>
+                            <span id="tournamentPlayerCount"></span><span>/</span><span id="tournamentMaxCapacity"></span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <h2><span id="tournamentTag"></span> @*@Model.tag*@ </h2>
+
         </div>
     </div>
 </div>

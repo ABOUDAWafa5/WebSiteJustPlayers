@@ -47,7 +47,6 @@ namespace ClanWebSite
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/style.css",
-                      "~/Content/font-awesome.css",
                       "~/Content/chocolat.css",
                       "~/Content/site.css",
                       "~/Content/Navigation.css"));

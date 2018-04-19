@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading;
 
 namespace ClanWebSite.Services
 {
@@ -36,6 +37,17 @@ namespace ClanWebSite.Services
 
         public TournamentInfo SearchTournaments()
         {
+            return new TournamentInfo()
+            {
+                maxCapacity = 50,
+                status = "open",
+                playerCount = 20,
+                realStartDate = DateTime.Now,
+                type = "open",
+                description = "descriptionm of the test",
+                name = "name of the test"
+            };
+
             if (latestFoundTournament != string.Empty)
             {
                var tournamentInfo =  GetTournamentInfo(latestFoundTournament);
@@ -112,6 +124,7 @@ namespace ClanWebSite.Services
                 tournamentInfo = IsTournamentActive(searched);
                 if (tournamentInfo != null) return tournamentInfo;
 
+                Thread.Sleep(30000);
             }
         }
 
@@ -123,6 +136,7 @@ namespace ClanWebSite.Services
                 if (tournamentInfo.playerCount < tournamentInfo.maxCapacity && tournamentInfo.status.ToLower() =="inprogress")
                 {
                     {
+                        TournamentInfo.SetRealStartDate(new List<TournamentInfo> {tournamentInfo});
                         return tournamentInfo;
                     }
                 }

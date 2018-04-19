@@ -167,7 +167,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\chocolat.css" />
-    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Navigation.css" />
     <Content Include="Content\spinner.css" />
     <Content Include="Content\style.css" />

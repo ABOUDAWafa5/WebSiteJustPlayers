@@ -394,8 +394,25 @@ body{
     width: 65%;
 }
 
-.tournament{
-    background-color:white;
+.tournament {
+    background-color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    min-height: 400px;
+}
+
+.tournament h1 {
+    font-size: 40px;
+}
+
+.tournament i {
+    font-size: 30px;
+}
+.tournament-details {
+    margin: 10px;
+    border: 3px solid #FF9800;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    padding-top: 15px;
 }
 
 .about-w3lsrow {
