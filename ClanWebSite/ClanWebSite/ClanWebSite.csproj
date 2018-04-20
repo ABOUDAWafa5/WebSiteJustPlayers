@@ -197,6 +197,7 @@
     <Content Include="Images\p8.jpg" />
     <Content Include="Images\right.png" />
     <Content Include="Images\t1.jpg" />
+    <Content Include="Images\t1.png" />
     <Content Include="Images\t2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="ApplicationInsights.config">
