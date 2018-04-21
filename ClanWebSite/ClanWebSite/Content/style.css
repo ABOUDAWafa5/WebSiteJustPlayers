@@ -393,6 +393,10 @@ body{
     margin: 1em auto 0;
     width: 65%;
 }
+.tournament-title {
+    padding-top: 20px;
+    background-color: white;
+}
 
 .tournament {
     background-color: white;
@@ -401,7 +405,8 @@ body{
 }
 
 .tournament h1 {
-    font-size: 40px;
+    font-size: 60px;
+    
 }
 
 .tournament i {
@@ -481,6 +486,10 @@ body{
     color: #FFFFFF;
     font-size: 2em;
 }
+    .icon-left i.fab {
+        color: #FFFFFF;
+        font-size: 2em;
+    }
 .icon-right{
     float: none;
     width: 100%;
@@ -849,10 +858,34 @@ ul.simplefilter {
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
+   
 }
+.footer-top i.fab.fa-facebook {
+    font-size: 2em;
+}
+
+        .team-caption ul li a i.fab.fa-facebook {
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        border: solid 2px #FFF;
+        background: none;
+        color: #FFF;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+        -ms-transition: 0.5s all;
+        font-size: 2em;
+    }
+
 .team-caption ul li a i.fa.fa-facebook:hover {
     background: #3b5998;
 }
+    .team-caption ul li a i.fab.fa-facebook:hover {
+        background: #3b5998;
+    }
+
 .team-caption ul li a i.fa.fa-twitter{
     height: 30px;
     width: 30px;

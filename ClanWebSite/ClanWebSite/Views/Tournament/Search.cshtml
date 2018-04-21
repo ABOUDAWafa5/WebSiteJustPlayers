@@ -4,6 +4,13 @@
 }
 
 @Styles.Render("~/Content/spinner")
+
+<Title>Tournament Finder</Title>
+<div class="tournament-title">
+<div class="container agileits-title">
+    <h2>Tournament Finder</h2>
+</div>
+</div>
 <div class="tournament" id="tournament">
     <div class="container">
         <div id="spinner" class="spinner-wrapper container">
@@ -16,11 +23,11 @@
                 <div><div><div><div><div></div></div></div></div></div>
             </div>
         </div>
-        <div id="tournamentDetails" class="tournament-info" style="display: none">
+        <div id="tournamentDetails" style="display: none">
             <h1><span id="tournamentName"></span></h1>
             <button id="btnCopy" class="transparent_btn orange pull-right btnClipboard" data-clipboard-text="asd@*@Model.name*@">Copy</button>
             <h3><span id="tournamentDescription"></span></h3>
-            <h3><span id="tournamentStarted"></span></h3>
+            <h3><span>Started at:</span><span id="tournamentStarted"></span></h3>
             <div class="row">
                 <div class="text-center col-md-4">
                     <div class="tournament-details ">
@@ -32,7 +39,7 @@
                 </div>
                 <div class="text-center col-md-4">
                     <div class="tournament-details">
-                        <i class=" fas fa-lock-open" aria-hidden="true"></i>
+                        <i class="fas fa-lock-open" aria-hidden="true"></i>
                         <h2>
                             <span id="tournamentType"></span> @*@Model.type*@
                         </h2>
