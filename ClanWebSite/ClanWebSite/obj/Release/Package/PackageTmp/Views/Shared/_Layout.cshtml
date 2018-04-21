@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Clan, Team, ClanTeam, Game, Clash Royale, multyplayer" />
+    <title>Team Just Players</title>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113945586-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-113945586-1');
+    </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1273441616495677",
+            enable_page_level_ads: true
+        });
+    </script>
+
+    @Styles.Render("~/Content/css")
+
+
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <script>
+        // Open the Modal
+        function openModal() {
+            $('#myModal').modal('show');
+        }
+    </script>
+
+</head>
+<body>
+<!--navbar menu-->
+<section class="navbar-info">
+    <nav class="navbar navbar-default navbar-me">
+        <div class="container ">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed menu-collapsed-button" data-toggle="collapse" data-target="#navbar-primary-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand site-logo" href="#">
+                    <img src="~/Images/imageLogo.png" />
+                </a>
+            </div>
+      
+            <div class="collapse navbar-collapse navbar-right  header-right-menu" id="navbar-primary-collapse">
+                <ul class="nav navbar-nav top">
+                    <li class="page-scroll">
+                        <a class="top-li" href="\" id="about-menu">Home</a>
+                    </li>
+                    <li>
+                        <a class="top-li" href="~/Tournament/Search" id="services-menu">Tournament</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+</section>
+<!-- end of navbar-->
+
+@RenderBody()
+
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="col-md-4 amet-sed">
+                <div class="footer-title">
+                    <h3>About Us</h3>
+                </div>
+                <p>We are clan created to support people who like to play in a team and have clear rules. We try to develop depends on our people wishes.</p>
+            </div>
+            <div class="col-md-4 amet-sed amet-medium">
+                <div class="footer-title">
+                    <h3>Games</h3>
+                </div>
+                <p><a href="https://clashroyale.com/">Clash Royale</a> Enter the Arena! From the creators of Clash of Clans comes a real-time multiplayer game starring the Royales, your favorite Clash characters and much, much more.
+                </p>
+                <p><a href="http://supercell.com/en/games/clashofclans/">Clash Of Clans</a> Still looking for good option to expand the army.
+                </p>
+            </div>
+            <div class="col-md-4 amet-sed ">
+                <div class="footer-title">
+                    <h3>Follow Us</h3>
+                </div>
+                <div class="agileinfo-social-grids">
+                    <ul>
+                        <li><a href="https://www.facebook.com/groups/1557722684304649/"><i class="fa fa-facebook"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- //footer -->
+
+@RenderSection("scripts", required: false)
+@Scripts.Render(" ~/bundles/custom")
+<script type="text/javascript">
+    /* init Jarallax */
+    $('.jarallax').jarallax({
+        speed: 0.5,
+        imgWidth: 1366,
+        imgHeight: 768
+    })
+</script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event) {
+            event.preventDefault();
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+        });
+    });
+</script>
+<a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span>To Top</a>
+</body>
+</html>
