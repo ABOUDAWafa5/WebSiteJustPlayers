@@ -5,57 +5,68 @@
 
 @Styles.Render("~/Content/spinner")
 
-<Title>Tournament Finder</Title>
-<div class="tournament-title">
-<div class="container agileits-title">
-    <h2>Tournament Finder</h2>
-</div>
-</div>
+
 <div class="tournament" id="tournament">
-    <div class="container">
-        <div id="spinner" class="spinner-wrapper container">
-            <div class="cssload-square">
-                <div><div><div><div><div></div></div></div></div></div>
-                <div><div><div><div><div></div></div></div></div></div>
-            </div>
-            <div class="cssload-square cssload-two">
-                <div><div><div><div><div></div></div></div></div></div>
-                <div><div><div><div><div></div></div></div></div></div>
+    <div class="agileinfo-dot">
+        <div class="tournament-title">
+            <div class="container agileits-title">
+                <h2>Tournament</h2>
             </div>
         </div>
-        <div id="tournamentDetails" style="display: none">
-            <h1><span id="tournamentName"></span></h1>
-            <button id="btnCopy" class="transparent_btn orange pull-right btnClipboard" data-clipboard-text="asd@*@Model.name*@">Copy</button>
-            <h3><span id="tournamentDescription"></span></h3>
-            <h3><span>Started at:</span><span id="tournamentStarted"></span></h3>
-            <div class="row">
-                <div class="text-center col-md-4">
-                    <div class="tournament-details ">
-                        <i class="far fa-clock"></i>
-                        <h2>
-                            <span id="tournamentStatus"></span> @*@Model.type*@
-                        </h2>
-                    </div>
+        <div class="container">
+            <div id="spinner" class="spinner-wrapper container">
+                <div class="cssload-square">
+                    <div><div><div><div><div></div></div></div></div></div>
+                    <div><div><div><div><div></div></div></div></div></div>
                 </div>
-                <div class="text-center col-md-4">
-                    <div class="tournament-details">
-                        <i class="fas fa-lock-open" aria-hidden="true"></i>
-                        <h2>
-                            <span id="tournamentType"></span> @*@Model.type*@
-                        </h2>
-                    </div>
-                </div>
-                <div class="text-center col-md-4">
-                    <div class="tournament-details">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                        <h2>
-                            <span id="tournamentPlayerCount"></span><span>/</span><span id="tournamentMaxCapacity"></span>
-                        </h2>
-                    </div>
+                <div class="cssload-square cssload-two">
+                    <div><div><div><div><div></div></div></div></div></div>
+                    <div><div><div><div><div></div></div></div></div></div>
                 </div>
             </div>
-            <h2><span id="tournamentTag"></span> @*@Model.tag*@ </h2>
+            <div id="tournamentDetails" style="display: none">
+                <div class="row">
+                    <div class="col-md-6">
 
+                        @*<img style="width: 100%;" src="~/Images/clashTournament.jpg" />*@
+                        <h1><span id="tournamentName"></span></h1>
+                        <h3><span id="tournamentDescription"></span></h3>
+                        <h3><span>Started at:</span><span id="tournamentStarted"></span></h3>
+
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-center col-md-4">
+                        <div class="tournament-details ">
+                            <i class="far fa-clock"></i>
+                            <h2>
+                                <span id="tournamentStatus"></span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="text-center col-md-4">
+                        <div class="tournament-details">
+                            <i class="fas fa-lock-open" aria-hidden="true"></i>
+                            <h2>
+                                <span id="tournamentType"></span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="text-center col-md-4">
+                        <div class="tournament-details">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <h2>
+                                <span id="tournamentPlayerCount"></span><span>/</span><span id="tournamentMaxCapacity"></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <h2><span id="tournamentTag"></span></h2>
+                <button id="btnCopy" class="transparent_btn orange btnClipboard btn-block" data-clipboard-text="">Copy tournament name</button>
+            </div>
         </div>
     </div>
 </div>

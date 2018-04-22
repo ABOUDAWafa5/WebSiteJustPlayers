@@ -1,0 +1,412 @@
+﻿@model ClanWebSite.Models.HomePageViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<!-- banner -->
+<div class="banner">
+    <div class="agileinfo-dot">
+        <div class="agileits-logo">
+            <h1>
+                <a href="\">JUST <span>Players</span></a>
+            </h1>
+            <h5>Tag: <span>#8GPYGYCV</span></h5>
+        </div>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-info">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <nav>
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="\">Home</a></li>
+                                    <li><a href="#rules" class="scroll">Rules</a></li>
+                                    <li><a href="#statistics" class="scroll">Statistics</a></li>
+                                    <li><a href="#team" class="scroll">Team</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="w3layouts-banner-info">
+            <div class="container">
+                <div class="w3layouts-banner-slider">
+                    <div class="w3layouts-banner-top-slider">
+                        <div class="slider">
+                            <div class="callbacks_container">
+                                <ul class="rslides callbacks callbacks1" id="slider4">
+                                    <li>
+                                        <div class="banner_text">
+                                            <h3>Team Statistics</h3>
+                                            <p>Team player activity details determine the rank and role in the team.</p>
+                                            <div class="w3-button">
+                                                <a href="#statistics">Read More</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="banner_text">
+                                            <h3>Facebook Group</h3>
+                                            <p>Join our crew to support, improve and develop together.</p>
+                                            <div class="w3-button">
+                                                <a href="https://www.facebook.com/groups/1557722684304649/" target="_blank">Join Now</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"> </div>
+                            <script>
+                                // You can also use "$(window).load(function() {"
+                                $(function () {
+                                    // Slideshow 4
+                                    $("#slider4").responsiveSlides({
+                                        auto: true,
+                                        pager: true,
+                                        nav: true,
+                                        speed: 500,
+                                        namespace: "callbacks",
+                                        before: function () {
+                                            $('.events').append("<li>before event fired.</li>");
+                                        },
+                                        after: function () {
+                                            $('.events').append("<li>after event fired.</li>");
+                                        }
+                                    });
+
+                                });
+                            </script>
+                            <!--banner Slider starts Here-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //banner -->
+<div class="about" id="rules">
+    <div class="container">
+        <div class="welcome">
+            <div class="agileits-title">
+                <h2>Welcome</h2>
+                <p>Bulgarian team just players offers the best tools and support of every player who follow the rules. We believe that long terms parnership is most successfull for all. We measure the activity of the members every day and promote every one who perform well.</p>
+            </div>
+        </div>
+        <div class="about-w3lsrow">
+            <div class="col-md-7 col-sm-7 w3about-img">
+                <div class="w3about-text">
+                    <h5 class="w3l-subtitle">- Rules</h5>
+                    <p>The key of success in our clan is following the Rules. You can improve your rank or be out of the clan depends of the statistics. We are open for suggestions for improvement.</p>
+                    <a class="transparent_btn orange pull-right" role="button" onclick="openModal()">Read</a>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- markets -->
+<div class="markets" id="statistics">
+    <div class="container">
+        <div class="agileits-title">
+            <h3>Monthly Statistics</h3>
+        </div>
+    </div>
+    <div class="container-fluid statistic-grid">
+        <div class="form-group pull-left">
+            <input type="text" class="search form-control" placeholder="Who you are looking for?">
+        </div>
+        <span class="counter pull-right"></span>
+        <table class="table table-hover table-bordered results">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="col-lg-1 col-md-1 col-xs-2">#</th>
+                    <th class="col-lg-2 col-md-3 col-xs-3">Name</th>
+                    <th class="col-lg-1 col-md-4 hidden-xs">Trophies</th>
+                    <th class="col-lg-1 col-md-3 hidden-xs">Donations</th>
+                    <th class="col-lg-1 col-md-3 hidden-xs">Rank</th>
+                    <th class="col-lg-1 col-md-3 hidden-xs">Clan Chest Crowns</th>
+                    <th class="col-lg-1 col-md-3 col-xs-3">Clan Points</th>
+                </tr>
+                <tr class="warning no-result">
+                    <td colspan="4"><i class="fab fa-warning"></i>No result</td>
+                </tr>
+            </thead>
+            <tbody>
+                @{var count = 1;
+                    foreach (var item in Model.ClanMembers.ToList())
+                    {
+
+                        <tr>
+                            @if (count == 1)
+                            {
+                                <th scope="row">@count <img src="~/Images/l3.png" width="15" height="15" /></th>
+                            }
+                            else
+                            {
+                                if (count == 2 || count == 3 || count == 4 || count == 5)
+                                {
+                                    <th scope="row">@count <img src="~/Images/l2.png" width="15" height="15" /></th>
+                                }
+                                else
+                                {
+                                    <th scope="row">@count</th>
+                                }
+                            }
+                            <td>@item.Name</td>
+                            <td class="hidden-xs">@item.Trophies</td>
+                            <td class="hidden-xs">@item.Donations</td>
+                            <td class="hidden-xs">@item.Rank</td>
+                            <td class="hidden-xs">@item.ClanChestCrowns</td>
+                            <td>@item.Points</td>
+                        </tr>
+                        count++;
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- //markets -->
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Rules</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Main</div>
+                        <ol class="list-group">
+                            <li class="list-group-item">No swearing</li>
+                            <li class="list-group-item">Minimum donates per week : 100</li>
+                            <li class="list-group-item">Minimum clan chest crowns: 15</li>
+                        </ol>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Promotions</div>
+                        <ol class="list-group">
+                            <li class="list-group-item">There is one Leader - the clan founder: DjiDjiBiDji</li>
+                            <li class="list-group-item">There is one Co-Leader - media supporter - Kiki</li>
+                            <li class="list-group-item">Promotions will be given every end of the week. You can see people promotions in clan statistics page. It depends on 3 main factors: Donates, Crown Chest, Trophies. Decrease also.</li>
+                            <li class="list-group-item">There are 4 Elders. You can find them in the clan statistics</li>
+                            <li class="list-group-item">There are 2 co-leaders. You can find them in the clan statistics</li>
+                        </ol>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Decreases</div>
+                        <ol class="list-group">
+                            <li class="list-group-item">You can find them in the clan statistic page. If you are not in the top 6 people you are decreased and another guy is promoted.</li>
+                            <li class="list-group-item">When you are inactive or you don't follow the rules you will be decreased.</li>
+                            <li class="list-group-item">When you don't have minimum required donates or chest crowns.</li>
+                        </ol>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Kick outs</div>
+                        <ol class="list-group">
+                            <li class="list-group-item">If you don't have minimum required donates per week.</li>
+                            <li class="list-group-item">If you don't have minimum required clan chest trophies per week.</li>
+                            <li class="list-group-item">If you don't follow the rules.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+<!-- team -->
+<div class="team" id="team">
+    <div class="container">
+        <div class="agileits-title">
+            <h3>Amazing Team</h3>
+        </div>
+        <div class="agileits-team-grids row justify-content-center">
+            <div class="col-md-4 agileits-team-grid">
+                <div class="team-info">
+                    <img src="images/t1.png" alt="">
+                    <div class="team-caption">
+                        <h4>Vasil Gerasimov</h4>
+                        <p>Team Leader</p>
+                        <ul>
+                            <li><a href="https://www.facebook.com/groups/1557722684304649/"><i class="fab fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-4 agileits-team-grid">
+                <div class="team-info">
+                    <img src="images/t2.jpg" alt="">
+                    <div class="team-caption">
+                        <h4>Kiki</h4>
+                        <p>Site support</p>
+                        <ul>
+                            <li><a href="https://www.facebook.com/groups/1557722684304649/"><i class="fab fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- //team -->
+<!-- testimonial -->
+<div class="jarallax testimonial" id="testimonial">
+    <div class="testimonial-dot">
+        <div class="container">
+            <div class="row">
+                <div class="agileits-title center-block">
+                    <h3>Suggestions for improvements:</h3>
+                    <h5>Examples: more statistics, tournaments, more elders etc</h5>
+                </div>
+                <div class="w3_mail_grids">
+                    <div class="col-md-4 col-md-offset-4">
+                        <textarea name="Message" id="txbSuggestion" placeholder="Message..." required=""></textarea>
+                        <input class="center-block" type="button" id="btnSubmit" value="Submit">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- portfolio -->
+<div class="portfolio" id="gallery">
+    <div class="container">
+        <div class="agileits-title">
+            <h3>Tournaments</h3>
+        </div>
+        <hr>
+        <div>
+            @{
+                foreach (var tournament in Model.Tournaments.TournamentPromotion)
+                {
+                    <div class="agileits-title">
+                        <h4>@tournament.Title</h4>
+                        <hr class="hr-left">
+                    </div>
+                    <div class="row">
+                        @if (tournament.TournamentLeft != null)
+                        {
+                            <div class="col-md-4">
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active">
+                                            <div class="panel panel-default active panel-custom">
+                                                <div class="panel-heading">@tournament.TournamentLeft.name</div>
+                                                <div class="panel-body">
+                                                    <div class="col-md-6">
+                                                        <div>
+                                                            Status: <span class="text-success">@tournament.TournamentLeft.status</span>
+                                                        </div>
+                                                        <div>Players: @tournament.TournamentLeft.capacity / @tournament.TournamentLeft.maxCapacity</div>
+                                                        <div>
+                                                            @tournament.TournamentLeft.realStartDate.ToShortTimeString()
+                                                        </div>
+                                                    </div>
+                                                    <button class="transparent_btn orange pull-right btnClipboard" data-clipboard-text="@tournament.TournamentLeft.name">Copy</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @if (tournament.TournamentMiddle != null)
+                        {
+                            <div class="col-md-4">
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active">
+                                            <div class="panel panel-default panel-custom">
+                                                <div class="panel-heading">@tournament.TournamentMiddle.name</div>
+                                                <div class="panel-body">
+                                                    <div class="col-md-6">
+                                                        <div>
+                                                            Status: <span class="text-success">@tournament.TournamentMiddle.status</span>
+                                                        </div>
+                                                        <div>Players: @tournament.TournamentMiddle.capacity / @tournament.TournamentMiddle.maxCapacity</div>
+                                                        <div>
+                                                            @tournament.TournamentMiddle.realStartDate.ToShortTimeString()
+                                                        </div>
+                                                    </div>
+                                                    <a class="transparent_btn orange pull-right btnClipboard" data-clipboard-text="@tournament.TournamentMiddle.name" role="button">Copy</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @if (tournament.TournamentRight != null)
+                        {
+                            <div class="col-md-4">
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active">
+                                            <div class="panel panel-default active panel-custom">
+                                                <div class="panel-heading">@tournament.TournamentRight.name</div>
+                                                <div class="panel-body">
+                                                    <div class="col-md-6">
+                                                        <div>
+                                                            Status <span class="text-success">@tournament.TournamentRight.status</span>
+                                                        </div>
+                                                        <div>Players @tournament.TournamentRight.capacity / @tournament.TournamentRight.maxCapacity</div>
+                                                        <div>
+                                                            @tournament.TournamentRight.realStartDate.ToShortTimeString()
+                                                        </div>
+                                                    </div>
+                                                    <a class="transparent_btn orange pull-right btnClipboard" data-clipboard-text="@tournament.TournamentRight.name" role="button">Copy</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+            <a class="btn orange" role="button" href="../Tournament/Search"><span class="glyphicon glyphicon-search"></span> FIND ME TOURNAMENT</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalAlert" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-body alert alert-success">
+                <p>Message send <strong>Successfully!</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

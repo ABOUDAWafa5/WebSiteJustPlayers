@@ -37,16 +37,16 @@ namespace ClanWebSite.Services
 
         public TournamentInfo SearchTournaments()
         {
-            return new TournamentInfo()
-            {
-                maxCapacity = 50,
-                status = "open",
-                playerCount = 20,
-                realStartDate = DateTime.Now,
-                type = "open",
-                description = "descriptionm of the test",
-                name = "name of the test"
-            };
+            //return new TournamentInfo()
+            //{
+            //    maxCapacity = 50,
+            //    status = "open",
+            //    playerCount = 20,
+            //    realStartDate = DateTime.Now,
+            //    type = "open",
+            //    description = "descriptionm of the test",
+            //    name = "name of the test"
+            //};
 
             if (latestFoundTournament != string.Empty)
             {
