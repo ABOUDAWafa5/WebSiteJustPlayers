@@ -165,6 +165,7 @@
     <Compile Include="Services\Models\TournamentSection.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ads.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\chocolat.css" />
     <Content Include="Content\Navigation.css" />

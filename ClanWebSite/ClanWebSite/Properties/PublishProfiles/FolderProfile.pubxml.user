@@ -8,6 +8,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <_PublishTargetUrl>E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\bin\Release\PublishOutput</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="ads.txt">
+      <publishTime>04/30/2018 00:24:06</publishTime>
+    </File>
     <File Include="ApplicationInsights.config">
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
@@ -21,19 +24,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
     <File Include="bin/ClanWebSite.dll">
-      <publishTime>04/23/2018 00:24:58</publishTime>
+      <publishTime>04/30/2018 00:24:14</publishTime>
     </File>
     <File Include="bin/ClanWebSite.pdb">
-      <publishTime>04/23/2018 00:24:58</publishTime>
+      <publishTime>04/30/2018 00:24:14</publishTime>
     </File>
     <File Include="bin/DataBase.dll">
-      <publishTime>04/23/2018 00:24:53</publishTime>
+      <publishTime>04/28/2018 23:34:14</publishTime>
     </File>
     <File Include="bin/DataBase.dll.config">
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
     <File Include="bin/DataBase.pdb">
-      <publishTime>04/23/2018 00:24:53</publishTime>
+      <publishTime>04/28/2018 23:34:14</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -441,13 +444,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/21/2018 23:12:48</publishTime>
+      <publishTime>04/28/2018 23:38:18</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/21/2018 23:12:48</publishTime>
+      <publishTime>04/28/2018 23:34:08</publishTime>
     </File>
     <File Include="Views/Tournament/Search.cshtml">
       <publishTime>04/22/2018 23:58:31</publishTime>

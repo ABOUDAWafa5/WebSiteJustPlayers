@@ -56,8 +56,7 @@ namespace ClanWebSite.Controllers
                     var clanRankPoints = ((decimal) (50 - latestClanRank) / (decimal) 1275) * 100;
 
                     viewMember.Add(new ClanMember
-                    {
-                        ClanChestCrowns = memberChestTrophies,
+                    {                        
                         Donations = memberChestDonations,
                         Rank = latestClanRank,
                         Name = memberMain.Name,

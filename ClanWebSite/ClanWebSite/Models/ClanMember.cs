@@ -9,8 +9,7 @@ namespace ClanWebSite.Models
     {
         public int Rank { get; set; }
         public string Name { get; set; }
-        public int Trophies { get; set; }
-        public int ClanChestCrowns { get; set; }
+        public int Trophies { get; set; }        
         public int Donations { get; set; }
         public string Tag { get; set; }
         public decimal Points { get; set; }
