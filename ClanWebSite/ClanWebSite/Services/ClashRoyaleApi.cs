@@ -14,7 +14,7 @@ namespace ClanWebSite.Services
     {
         private static string apiKey;
         private static HttpClient client;
-        private static string apiBaseaddress = "http://api.cr-api.com/";
+        private static string apiBaseaddress = "https://api.royaleapi.com/";
         private static string latestFoundTournament = string.Empty;
 
         public ClashRoyaleApi()
@@ -36,18 +36,7 @@ namespace ClanWebSite.Services
         }
 
         public TournamentInfo SearchTournaments()
-        {
-            //return new TournamentInfo()
-            //{
-            //    maxCapacity = 50,
-            //    status = "open",
-            //    playerCount = 20,
-            //    realStartDate = DateTime.Now,
-            //    type = "open",
-            //    description = "descriptionm of the test",
-            //    name = "name of the test"
-            //};
-
+        {           
             if (latestFoundTournament != string.Empty)
             {
                var tournamentInfo =  GetTournamentInfo(latestFoundTournament);

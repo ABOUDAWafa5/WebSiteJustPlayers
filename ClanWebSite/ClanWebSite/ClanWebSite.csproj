@@ -153,6 +153,7 @@
     <Compile Include="Common\InMemoryCache.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TournamentController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,16 +172,19 @@
     <Content Include="Content\Navigation.css" />
     <Content Include="Content\spinner.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\Video.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\1.jpg" />
+    <Content Include="Images\12wins.png" />
     <Content Include="Images\2.jpg" />
     <Content Include="Images\3.jpg" />
     <Content Include="Images\arrow.png" />
     <Content Include="Images\arrows.png" />
+    <Content Include="Images\ClanWars.png" />
     <Content Include="Images\clashTournament.jpg" />
     <Content Include="Images\close.png" />
     <Content Include="Images\dott.png" />
@@ -236,7 +240,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\responsiveslides.min.js" />
     <Content Include="Scripts\SmoothScroll.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -249,6 +255,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Tournament\Search.cshtml" />
+    <Content Include="Views\Video\Video.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

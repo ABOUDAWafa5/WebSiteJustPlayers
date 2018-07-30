@@ -33,11 +33,16 @@ namespace ClanWebSite.Controllers
             {
                 var allMembers = entities.MemberHistory
                     .Where(p => p.Date <= todayTicks && p.Date > monthsBefore && p.Member.IsStillInTheClan).GroupBy(t => t.Tag);
-                var clanDonations = entities.MemberHistory
-                    .Where(p => p.Date <= todayTicks && p.Date > monthsBefore && p.Member.IsStillInTheClan)
-                    .Sum(t => t.Donations);
+
+                int clanDonations = 0;
+                if (entities.MemberHistory.Any())
+                {
+                    clanDonations = entities.MemberHistory
+                        .Where(p => p.Member != null && p.Member.IsStillInTheClan).ToList().Where(p=>p != null && p.Date <= todayTicks && p.Date > monthsBefore)
+                        .Sum(t => t.Donations);
+                }
                 var clanChestTrophies = entities.MemberHistory
-                    .Where(p => p.Date <= todayTicks && p.Date > monthsBefore && p.Member.IsStillInTheClan)
+                    .Where(p => p.Member.IsStillInTheClan).ToList().Where(p => p.Date <= todayTicks && p.Date > monthsBefore)
                     .Sum(t => t.ClanChestCrowns);
 
 

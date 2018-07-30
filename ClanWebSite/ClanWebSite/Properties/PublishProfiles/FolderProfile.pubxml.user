@@ -24,19 +24,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
     <File Include="bin/ClanWebSite.dll">
-      <publishTime>04/30/2018 00:24:14</publishTime>
+      <publishTime>07/04/2018 02:12:33</publishTime>
     </File>
     <File Include="bin/ClanWebSite.pdb">
-      <publishTime>04/30/2018 00:24:14</publishTime>
+      <publishTime>07/04/2018 02:12:33</publishTime>
     </File>
     <File Include="bin/DataBase.dll">
-      <publishTime>04/28/2018 23:34:14</publishTime>
+      <publishTime>07/04/2018 01:38:03</publishTime>
     </File>
     <File Include="bin/DataBase.dll.config">
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
     <File Include="bin/DataBase.pdb">
-      <publishTime>04/28/2018 23:34:14</publishTime>
+      <publishTime>07/04/2018 01:38:03</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -258,7 +258,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/20/2018 00:47:54</publishTime>
     </File>
     <File Include="Content/style.css">
-      <publishTime>04/23/2018 00:23:41</publishTime>
+      <publishTime>06/06/2018 00:45:15</publishTime>
+    </File>
+    <File Include="Content/Video.css">
+      <publishTime>05/20/2018 14:27:58</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>04/17/2018 18:04:05</publishTime>
@@ -302,6 +305,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/1.jpg">
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
+    <File Include="Images/12wins.png">
+      <publishTime>05/20/2018 01:10:28</publishTime>
+    </File>
     <File Include="Images/2.jpg">
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
@@ -313,6 +319,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Images/arrows.png">
       <publishTime>04/17/2018 18:04:05</publishTime>
+    </File>
+    <File Include="Images/ClanWars.png">
+      <publishTime>05/20/2018 01:14:36</publishTime>
     </File>
     <File Include="Images/clashTournament.jpg">
       <publishTime>04/23/2018 00:12:44</publishTime>
@@ -444,16 +453,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/28/2018 23:38:18</publishTime>
+      <publishTime>06/06/2018 00:36:51</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/28/2018 23:34:08</publishTime>
+      <publishTime>05/20/2018 14:21:12</publishTime>
     </File>
     <File Include="Views/Tournament/Search.cshtml">
       <publishTime>04/22/2018 23:58:31</publishTime>
+    </File>
+    <File Include="Views/Video/Video.cshtml">
+      <publishTime>05/20/2018 14:25:37</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>04/17/2018 18:04:05</publishTime>
@@ -462,7 +474,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/17/2018 18:04:05</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/23/2018 00:24:59</publishTime>
+      <publishTime>07/04/2018 02:12:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

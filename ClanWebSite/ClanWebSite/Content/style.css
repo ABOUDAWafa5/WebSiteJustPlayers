@@ -67,20 +67,22 @@ body{
     color: #FFFFFF;
 }
 
-    .agileits-logo h5 {
+    .agileits-logo h5 a{
         text-transform: capitalize;
         letter-spacing: 1px;
         font-weight: 300;
+        font-size:xx-large;
         color: #FF9800;
     }
 
 
-        .agileits-logo h5 span {
-            text-transform: capitalize;
-            letter-spacing: 1px;
-            font-weight: 300;
-            color: #FF9800;
-        }
+    .agileits-logo h5 span {
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        font-weight: 300;
+        color: #FF9800;
+        font-size: xx-large;
+    }
 .navbar-default {
     background: none;
     border: none;
@@ -880,6 +882,11 @@ ul.simplefilter {
     -ms-transition: 0.5s all;
    
 }
+
+.footer-top i.fab.fa-youtube {
+    font-size: 2em;
+}
+
 .footer-top i.fab.fa-facebook {
     font-size: 2em;
 }

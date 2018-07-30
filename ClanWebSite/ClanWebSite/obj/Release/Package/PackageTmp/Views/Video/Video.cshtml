@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Video";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/video")
+<div class="video-section">
+    <div class="container">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/trX7yeEBnRU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4 video-text"><h1>Classic Challenge 12 wins + three musketeers</h1><p>In first episode I'm going to do 12 wins in Classic Challenge. I will use a popular deck with 3 musketeers and Elixir Collector. If you have any questions or proposals please write them in the comments section.</p></div></div></div>
+                <div class="item"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/1jIZVmPDcFk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4 video-text"><h1>Clash Royale clan war Final Battles (Giant - Double prince decks)</h1><p>In this episode I'm going to show our clan battles. That are final day battles of the clan crew. It includes deck of giant + double prince. Enjoy and write your feedback in the comments.</p></div> </div></div>
+                @*<div class="item"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/trX7yeEBnRU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4">dfghdfjghj </div> </div></div>
+                    <div class="item"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/1jIZVmPDcFk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4">hjfgjh </div> </div></div>
+                    <div class="item"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/trX7yeEBnRU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4">gjhfgjh </div> </div></div>
+                    <div class="item"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/1jIZVmPDcFk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4">fgjfgjfgjhhj </div> </div></div>
+                    <div class="item"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/trX7yeEBnRU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4">sadasdryetasdasdaf </div> </div></div>
+                    <div class="item"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/1jIZVmPDcFk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4">reyertyertyerty </div> </div></div>
+                    <div class="item"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/trX7yeEBnRU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4">tyhmj </div> </div></div>
+                    <div class="item"><div class="row"> <div class="col-md-8"><div class="videoWrapper"><iframe width="800" height="450" src="https://www.youtube.com/embed/1jIZVmPDcFk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="col-md-4">sadasdasdasdaf </div> </div></div>*@
+            </div>
+        </div>
+        <div class="clearfix">
+            <div id="thumbcarousel" class="carousel slide" data-interval="false">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="../images/12wins.png"></div>
+                        <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="../images/clanwars.png"></div>
+                    </div>
+                    @*<div class="item">
+                            <div data-target="#carousel" data-slide-to="5" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+06"></div>
+                            <div data-target="#carousel" data-slide-to="6" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+07"></div>
+                            <div data-target="#carousel" data-slide-to="7" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+08"></div>
+                            <div data-target="#carousel" data-slide-to="8" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+08"></div>
+                            <div data-target="#carousel" data-slide-to="9" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+10"></div>
+                        </div>*@
+                </div>
+                <!-- /carousel-inner -->
+                <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev"> <i class="fas fa-angle-left" aria-hidden="true"></i> </a> <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next"><i class="fas fa-angle-right" aria-hidden="true"></i> </a>
+            </div>
+            <!-- /thumbcarousel -->
+
+        </div>
+    </div>
+</div>

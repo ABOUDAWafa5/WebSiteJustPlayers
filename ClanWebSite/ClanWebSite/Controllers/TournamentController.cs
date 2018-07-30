@@ -23,7 +23,8 @@ namespace ClanWebSite.Controllers
         public JsonResult GetTournament()
         {
             var clashRoyaleApi = new ClashRoyaleApi();
-            var tournament = memoryCache.GetOrSet("tournament", () => clashRoyaleApi.SearchTournaments());
+            //var tournament = memoryCache.GetOrSet("tournament", () => clashRoyaleApi.SearchTournaments());
+            var tournament = clashRoyaleApi.SearchTournaments();
             return Json(tournament, JsonRequestBehavior.AllowGet);
         }
     }

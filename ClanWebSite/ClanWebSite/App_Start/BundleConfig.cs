@@ -51,6 +51,9 @@ namespace ClanWebSite
                       "~/Content/site.css",
                       "~/Content/Navigation.css"));
 
+            bundles.Add(new StyleBundle("~/Content/video").Include(
+                   "~/Content/video.css"));
+
             bundles.Add(new StyleBundle("~/Content/spinner").Include(
                 "~/Content/spinner.css"));
 
