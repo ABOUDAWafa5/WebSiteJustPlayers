@@ -7,20 +7,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Tag" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
-    <Property Name="ClanRank" Type="int" Nullable="false" />
-    <Property Name="Trophies" Type="int" Nullable="false" />
-    <Property Name="IsStillInTheClan" Type="bit" Nullable="false" />
-  </EntityType>
-  <EntityType Name="MemberHistory">
-    <Key>
-      <PropertyRef Name="Date" />
-      <PropertyRef Name="Tag" />
-    </Key>
-    <Property Name="Date" Type="bigint" Nullable="false" />
-    <Property Name="Tag" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="ClanMember" Type="int" Nullable="false" />
-    <Property Name="ClanChestCrowns" Type="int" Nullable="false" />
-    <Property Name="Donations" Type="int" Nullable="false" />
+    <Property Name="JoinDate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="Suggestion">
     <Key>
@@ -30,25 +17,8 @@
     <Property Name="Message" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="DateTime" Type="datetime" Nullable="false" />
   </EntityType>
-  <Association Name="FK_MemberHistory_Member">
-    <End Role="Member" Type="Self.Member" Multiplicity="1" />
-    <End Role="MemberHistory" Type="Self.MemberHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Member">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MemberHistory">
-        <PropertyRef Name="ClanMember" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="ClanManagerModelStoreContainer">
     <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MemberHistory" EntityType="Self.MemberHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Suggestion" EntityType="Self.Suggestion" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_MemberHistory_Member" Association="Self.FK_MemberHistory_Member">
-      <End Role="Member" EntitySet="Member" />
-      <End Role="MemberHistory" EntitySet="MemberHistory" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

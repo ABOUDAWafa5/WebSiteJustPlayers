@@ -3,6 +3,9 @@
     ViewBag.Title = "Home Page";
 }
 <!-- banner -->
+<div id="chatDiv">
+    <script id="cid0020000193980001461" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="z-index: 999;width: 100%;height: 100%;">{ "handle": "just-players", "arch": "js", "styles": { "a": "EE7600", "b": 100, "c": "FFFFFF", "d": "FFFFFF", "k": "EE7600", "l": "EE7600", "m": "EE7600", "n": "FFFFFF", "p": "10", "q": "EE7600", "r": 100, "t": 0, "ab": false, "usricon": 0, "surl": 0, "allowpm": 0, "fwtickm": 1 } }</script>
+    </div>
 <div class="banner">
     <div class="agileinfo-dot">
         <div class="agileits-logo">
@@ -146,7 +149,7 @@
             <h3>Monthly Statistics</h3>
         </div>
     </div>
-    <div class="container-fluid statistic-grid">
+    <div class="container statistic-grid">
         <div class="form-group pull-left">
             <input type="text" class="search form-control" placeholder="Who you are looking for?">
         </div>
@@ -156,10 +159,9 @@
                 <tr>
                     <th class="col-lg-1 col-md-1 col-xs-2">#</th>
                     <th class="col-lg-2 col-md-3 col-xs-3">Name</th>
-                    <th class="col-lg-1 col-md-4 hidden-xs">Trophies</th>
-                    <th class="col-lg-1 col-md-3 hidden-xs">Donations</th>
-                    <th class="col-lg-1 col-md-3 hidden-xs">Rank</th>                    
-                    <th class="col-lg-1 col-md-3 col-xs-3">Clan Points</th>
+                    <th class="col-lg-2 col-md-3 col-xs-3">Percent</th>
+                    <th class="col-lg-1 col-md-4 hidden-xs">Wins\Battles</th>
+                    <th class="col-lg-1 col-md-3 hidden-xs">Join Date</th>
                 </tr>
                 <tr class="warning no-result">
                     <td colspan="4"><i class="fab fa-warning"></i>No result</td>
@@ -170,8 +172,30 @@
                     foreach (var item in Model.ClanMembers.ToList())
                     {
 
-                        <tr>
-                            @if (count == 1)
+
+                        if (item.Percent < 35 && item.ClanWars > 2)
+                        {
+                            @:<tr style="background:red">
+                            }
+                            else
+                            {
+                                if ((DateTime.Now - item.JoinDate).TotalDays > 9 && item.ClanWars <= 2)
+                                {
+                                    @:<tr style="background:red">
+
+
+                                }
+                                else
+                                {
+                                    @:<tr>
+                                }
+
+                            }
+
+
+
+
+                            if (count == 1)
                             {
                                 <th scope="row">@count <img src="~/Images/l3.png" width="15" height="15" /></th>
                             }
@@ -187,11 +211,10 @@
                                 }
                             }
                             <td>@item.Name</td>
-                            <td class="hidden-xs">@item.Trophies</td>
-                            <td class="hidden-xs">@item.Donations</td>
-                            <td class="hidden-xs">@item.Rank</td>                            
-                            <td>@item.Points</td>
-                        </tr>
+                            <td class="hidden-xs">@item.Percent</td>
+                            <td class="hidden-xs">@item.ClanWins\@item.ClanWars</td>
+                            <td class="hidden-xs">@item.JoinDate.ToShortDateString()</td>
+                            @:</tr>
                         count++;
                     }
                 }
@@ -218,7 +241,7 @@
                             <li class="list-group-item">No swearing</li>
                             <li class="list-group-item">Minimum donates per week : 200</li>
                             <li class="list-group-item">Participate in the clan wars: All</li>
-                            <li class="list-group-item">Loses in clan wars in a row: 4</li>                            
+                            <li class="list-group-item">Loses in clan wars in a row: 4</li>
                         </ol>
                     </div>
                     <div class="panel panel-default">
@@ -339,12 +362,12 @@
                                                         <div>
                                                             Status: <span class="text-success">@tournament.TournamentLeft.status</span>
                                                         </div>
-                                                        <div>Players: @tournament.TournamentLeft.capacity / @tournament.TournamentLeft.maxCapacity</div>
+                                                        <div>Players: @tournament.TournamentLeft.currentPlayers / @tournament.TournamentLeft.maxPlayers</div>
                                                         <div>
                                                             @tournament.TournamentLeft.realStartDate.ToShortTimeString()
                                                         </div>
                                                     </div>
-                                                    <button class="transparent_btn orange pull-right btnClipboard" data-clipboard-text="@tournament.TournamentLeft.name">Copy</button>
+                                                    <a class="transparent_btn orange pull-right btnClipboard" href="https://link.clashroyale.com/?joinTournament?id= @tournament.TournamentLeft.tag">Join</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -365,13 +388,12 @@
                                                         <div>
                                                             Status: <span class="text-success">@tournament.TournamentMiddle.status</span>
                                                         </div>
-                                                        <div>Players: @tournament.TournamentMiddle.capacity / @tournament.TournamentMiddle.maxCapacity</div>
+                                                        <div>Players: @tournament.TournamentMiddle.currentPlayers / @tournament.TournamentMiddle.maxPlayers</div>
                                                         <div>
                                                             @tournament.TournamentMiddle.realStartDate.ToShortTimeString()
                                                         </div>
                                                     </div>
-                                                    <a class="transparent_btn orange pull-right btnClipboard" data-clipboard-text="@tournament.TournamentMiddle.name" role="button">Copy</a>
-
+                                                    <a class="transparent_btn orange pull-right btnClipboard" href="https://link.clashroyale.com/?joinTournament?id= @tournament.TournamentMiddle.tag">Join</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -392,12 +414,12 @@
                                                         <div>
                                                             Status <span class="text-success">@tournament.TournamentRight.status</span>
                                                         </div>
-                                                        <div>Players @tournament.TournamentRight.capacity / @tournament.TournamentRight.maxCapacity</div>
+                                                        <div>Players @tournament.TournamentRight.currentPlayers / @tournament.TournamentRight.maxPlayers</div>
                                                         <div>
                                                             @tournament.TournamentRight.realStartDate.ToShortTimeString()
                                                         </div>
                                                     </div>
-                                                    <a class="transparent_btn orange pull-right btnClipboard" data-clipboard-text="@tournament.TournamentRight.name" role="button">Copy</a>
+                                                    <a class="transparent_btn orange pull-right btnClipboard" href="https://link.clashroyale.com/?joinTournament?id= @tournament.TournamentRight.tag" role="button">Join</a>
                                                 </div>
                                             </div>
                                         </div>

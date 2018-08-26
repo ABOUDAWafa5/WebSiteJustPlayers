@@ -119,10 +119,10 @@ ol li.list-group-item {
     display: list-item;
 }
 
-.statistic-grid {
+/*.statistic-grid {
     max-height: 600px;
     overflow: scroll;
-}
+}*/
 
 .table > thead:first-child > tr:first-child > th {
     vertical-align: bottom;
@@ -137,38 +137,47 @@ ol li.list-group-item {
     margin-bottom: 0px;
 }
 
+#chatDiv {
+    z-index: 999;
+    width: 300px;
+    height: 400px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
 @media (min-width: 768px) {
-    .statistic-grid {
-        max-height: 50px;
-        overflow: hidden;
+    #chatDiv {
+        width: 300px;
+        height: 200px;
     }
 }
 
 
 @media(max-width:767px) {
-    .statistic-grid {
-        max-height: 500px;
-        overflow: hidden;
+    #chatDiv {
+        width: 300px;
+        height: 200px;
     }
 }
 
 @media(min-width:768px) {
-    .statistic-grid {
-        max-height: 1000px;
-        overflow: hidden;
+    #chatDiv {
+        width: 300px;
+        height: 400px;
     }
 }
 
 @media(min-width:992px) {
-    .statistic-grid {
-        max-height: 1000px;
-        overflow: hidden;
+    #chatDiv {
+        width: 300px;
+        height: 400px;
     }
 }
 
 @media(min-width:1200px) {
-    .statistic-grid {
-        max-height: 1000px;
-        overflow: hidden;
+    #chatDiv {
+        width: 300px;
+        height: 400px;
     }
 }   

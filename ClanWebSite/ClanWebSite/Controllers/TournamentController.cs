@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ClanWebSite.Services;
 using System.Web.Caching;
 using ClanWebSite.Common;
+using RoyaleApi;
 
 namespace ClanWebSite.Controllers
 {
     public class TournamentController : Controller
     {
-
+        private ClashRoyaleApi clashRoyaleApi = new ClashRoyaleApi();
         private static InMemoryCache memoryCache = new InMemoryCache();
         // GET: Tournament
         public ActionResult Search()
@@ -21,9 +21,7 @@ namespace ClanWebSite.Controllers
 
 
         public JsonResult GetTournament()
-        {
-            var clashRoyaleApi = new ClashRoyaleApi();
-            //var tournament = memoryCache.GetOrSet("tournament", () => clashRoyaleApi.SearchTournaments());
+        {                    
             var tournament = clashRoyaleApi.SearchTournaments();
             return Json(tournament, JsonRequestBehavior.AllowGet);
         }

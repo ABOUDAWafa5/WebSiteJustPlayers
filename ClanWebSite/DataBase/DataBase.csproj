@@ -67,9 +67,6 @@
     <Compile Include="Member.cs">
       <DependentUpon>ClanManagerEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="MemberHistory.cs">
-      <DependentUpon>ClanManagerEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Suggestion.cs">
       <DependentUpon>ClanManagerEntities.tt</DependentUpon>

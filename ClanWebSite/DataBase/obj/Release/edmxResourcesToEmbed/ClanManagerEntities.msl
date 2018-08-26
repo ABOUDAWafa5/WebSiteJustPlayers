@@ -1,34 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ClanManagerModelStoreContainer" CdmEntityContainer="ClanManagerEntities">
-    <EntitySetMapping Name="MemberHistory">
-      <EntityTypeMapping TypeName="ClanManagerModel.MemberHistory">
-        <MappingFragment StoreEntitySet="MemberHistory">
-          <ScalarProperty Name="Donations" ColumnName="Donations" />
-          <ScalarProperty Name="ClanChestCrowns" ColumnName="ClanChestCrowns" />
-          <ScalarProperty Name="ClanMember" ColumnName="ClanMember" />
-          <ScalarProperty Name="Tag" ColumnName="Tag" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
+    <EntitySetMapping Name="Suggestion">
+      <EntityTypeMapping TypeName="ClanManagerModel.Suggestion">
+        <MappingFragment StoreEntitySet="Suggestion">
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Member">
       <EntityTypeMapping TypeName="ClanManagerModel.Member">
         <MappingFragment StoreEntitySet="Member">
-          <ScalarProperty Name="IsStillInTheClan" ColumnName="IsStillInTheClan" />
-          <ScalarProperty Name="Trophies" ColumnName="Trophies" />
-          <ScalarProperty Name="ClanRank" ColumnName="ClanRank" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Tag" ColumnName="Tag" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Suggestion">
-      <EntityTypeMapping TypeName="ClanManagerModel.Suggestion">
-        <MappingFragment StoreEntitySet="Suggestion">
-          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-          <ScalarProperty Name="Message" ColumnName="Message" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

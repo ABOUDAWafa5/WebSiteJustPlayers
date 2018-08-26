@@ -26,9 +26,7 @@
             </div>
             <div id="tournamentDetails" style="display: none">
                 <div class="row">
-                    <div class="col-md-6">
-
-                        @*<img style="width: 100%;" src="~/Images/clashTournament.jpg" />*@
+                    <div class="col-md-6">                        
                         <h1><span id="tournamentName"></span></h1>
                         <h3><span id="tournamentDescription"></span></h3>
                         <h3><span>Started at:</span><span id="tournamentStarted"></span></h3>
@@ -65,7 +63,7 @@
                     </div>
                 </div>
                 <h2><span id="tournamentTag"></span></h2>
-                <button id="btnCopy" class="transparent_btn orange btnClipboard btn-block" data-clipboard-text="">Copy tournament name</button>
+                <a id="btnCopy" class="transparent_btn orange btnClipboard btn-block" href="https://link.clashroyale.com/?joinTournament?id=">Join Tournament</a>
             </div>
         </div>
     </div>
@@ -74,4 +72,4 @@
 {
     <script type="text/javascript" src="@Url.Content("/Scripts/CustomScripts/tournaments.js")"></script>    
 }
-@Scripts.Render(" ~/bundles/tournaments")
+@*@Scripts.Render(" ~/bundles/tournaments")*@

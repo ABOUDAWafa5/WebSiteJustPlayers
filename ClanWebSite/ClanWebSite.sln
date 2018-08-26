@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClanWebSite", "ClanWebSite\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{5D242A31-B806-47F2-90BB-59BF1ABB07FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleService", "ScheduleService\ScheduleService.csproj", "{A8FAE0CD-6EBF-4FF7-9F33-1430B619A790}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoyaleApi", "RoyaleApi\RoyaleApi.csproj", "{1BF6D6F7-9FA3-4E15-82A4-7DFEB5D8A45A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,13 @@ Global
 		{5D242A31-B806-47F2-90BB-59BF1ABB07FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D242A31-B806-47F2-90BB-59BF1ABB07FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D242A31-B806-47F2-90BB-59BF1ABB07FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8FAE0CD-6EBF-4FF7-9F33-1430B619A790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8FAE0CD-6EBF-4FF7-9F33-1430B619A790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8FAE0CD-6EBF-4FF7-9F33-1430B619A790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BF6D6F7-9FA3-4E15-82A4-7DFEB5D8A45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF6D6F7-9FA3-4E15-82A4-7DFEB5D8A45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF6D6F7-9FA3-4E15-82A4-7DFEB5D8A45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF6D6F7-9FA3-4E15-82A4-7DFEB5D8A45A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

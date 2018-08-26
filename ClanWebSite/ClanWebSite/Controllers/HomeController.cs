@@ -1,6 +1,7 @@
 ﻿using ClanWebSite.Models;
-using ClanWebSite.Services;
 using DataBase;
+using RoyaleApi;
+using RoyaleApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,66 +12,77 @@ namespace ClanWebSite.Controllers
 {
     public class HomeController : Controller
     {
+        private ClashRoyaleApi clashRoyaleApi = new ClashRoyaleApi();
         public ActionResult Index()
         {
-            HomePageViewModel viewModel = new HomePageViewModel {ClanMembers = GetClanStatistics().OrderByDescending(p => p.Points).ToList() };
-
-            var clashRoyaleApi = new ClashRoyaleApi();
+            HomePageViewModel viewModel = new HomePageViewModel { ClanMembers = GetClanStatistics() };            
             viewModel.Tournaments = clashRoyaleApi.GetTournaments();
 
             return View(viewModel);
         }
 
-        private static List<ClanMember> GetClanStatistics()
+        private List<ClanMember> GetClanStatistics()
         {
-            var now = DateTime.Now;
-            DateTime today = new DateTime(now.Year, now.Month, now.Day);
-            var todayTicks = today.Ticks;
-            var monthsBefore = today.AddMonths(-1).Ticks;
-
-            List<ClanMember> viewMember = new List<ClanMember>();
             using (var entities = new ClanManagerEntities())
             {
-                var allMembers = entities.MemberHistory
-                    .Where(p => p.Date <= todayTicks && p.Date > monthsBefore && p.Member.IsStillInTheClan).GroupBy(t => t.Tag);
 
-                int clanDonations = 0;
-                if (entities.MemberHistory.Any())
+                var dbMembers = entities.Member;               
+
+                List<ClanWar> latestWars = clashRoyaleApi.GetLatestClanWars();
+                var lastInfoPlayers = clashRoyaleApi.GetClanInfo();
+
+                List<ClanMember> members = new List<ClanMember>();
+
+                foreach (var player in lastInfoPlayers.members)
                 {
-                    clanDonations = entities.MemberHistory
-                        .Where(p => p.Member != null && p.Member.IsStillInTheClan).ToList().Where(p=>p != null && p.Date <= todayTicks && p.Date > monthsBefore)
-                        .Sum(t => t.Donations);
+
+                    var clanMember = new ClanMember
+                    {
+                        Name = player.name,
+                        Tag = player.tag
+                    };
+                    members.Add(clanMember);
+
+                    var dbMember = dbMembers.FirstOrDefault(s => s.Tag == player.tag);
+
+                    if (dbMember != null)
+                    {
+                        clanMember.JoinDate = dbMember.JoinDate;
+                    }
+                    else
+                    {
+                        clanMember.JoinDate = DateTime.Now;
+                    }
+
                 }
-                var clanChestTrophies = entities.MemberHistory
-                    .Where(p => p.Member.IsStillInTheClan).ToList().Where(p => p.Date <= todayTicks && p.Date > monthsBefore)
-                    .Sum(t => t.ClanChestCrowns);
 
-
-                foreach (var member in allMembers)
+                if (latestWars != null)
                 {
-                    var memberMain = entities.Member.FirstOrDefault(t => t.Tag == member.Key);
+                    foreach (ClanWar war in latestWars)
+                    {
+                        foreach (var participant in war.participants)
+                        {
+                            var clanMember = members.FirstOrDefault(s => s.Tag == participant.tag);
+                            if (clanMember != null)
+                            {
 
-                    var memberChestTrophies = member.Sum(s => s.ClanChestCrowns);
-                    var memberChestTrophiesPercantage = ((decimal) memberChestTrophies / (decimal) clanChestTrophies) * 100;
+                                clanMember.ClanWars += participant.battlesPlayed;
+                                clanMember.ClanWins += participant.wins;
 
-                    var memberChestDonations = member.Sum(s => s.Donations);
-                    var memberChestDonationsPercantege = ((decimal) memberChestDonations / (decimal) clanDonations) * 100;
-
-
-                    var latestClanRank = memberMain.ClanRank;
-                    var clanRankPoints = ((decimal) (50 - latestClanRank) / (decimal) 1275) * 100;
-
-                    viewMember.Add(new ClanMember
-                    {                        
-                        Donations = memberChestDonations,
-                        Rank = latestClanRank,
-                        Name = memberMain.Name,
-                        Trophies = memberMain.Trophies,
-                        Points = Math.Round(memberChestTrophiesPercantage + memberChestDonationsPercantege + clanRankPoints, 2)
-                    });
+                                clanMember.Percent = Math.Round((((double)(clanMember.ClanWins * 100)) / clanMember.ClanWars), 2);
+                            }
+                        }
+                    }
                 }
+
+                List<ClanMember> loyalMembers = members.Where(s => s.ClanWars > 5).ToList();
+                var newMembers = members.Where(s => s.ClanWars <= 5).ToList();
+
+                loyalMembers =loyalMembers.OrderByDescending(p => p.Percent).ToList();
+                newMembers= newMembers.OrderByDescending(p => p.Percent).ToList();
+                loyalMembers.AddRange(newMembers);
+                return loyalMembers;
             }
-            return viewMember;
         }
 
         [HttpPost]
@@ -90,7 +102,7 @@ namespace ClanWebSite.Controllers
                     entities.SaveChanges();
                 }
             }
-                return Json("Success");
+            return Json("Success");
         }
 
         public ActionResult About()

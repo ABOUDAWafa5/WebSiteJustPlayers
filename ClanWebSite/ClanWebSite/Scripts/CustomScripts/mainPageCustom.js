@@ -27,6 +27,19 @@ $(function () {
         copyToClipboard(text);
     });
 
+    $("#toDiscord").click(function (e) {
+        var chatDiv = $('#chatDiv');               
+        if (chatDiv.is(':visible')) {
+            chatDiv.hide();
+        } else {
+            chatDiv.show();
+        }
+        e.preventDefault()
+    });
+
+
+    
+
     function copyToClipboard(text) {
         var $temp = $("<input>");
         $("body").append($temp);

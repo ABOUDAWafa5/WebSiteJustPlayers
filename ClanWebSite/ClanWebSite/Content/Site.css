@@ -119,10 +119,10 @@ ol li.list-group-item {
     display: list-item;
 }
 
-.statistic-grid {
+/*.statistic-grid {
     max-height: 600px;
     overflow: scroll;
-}
+}*/
 
 .table > thead:first-child > tr:first-child > th {
     vertical-align: bottom;
@@ -137,38 +137,39 @@ ol li.list-group-item {
     margin-bottom: 0px;
 }
 
-@media (min-width: 768px) {
-    .statistic-grid {
-        max-height: 50px;
-        overflow: hidden;
-    }
+#chatDiv {
+    z-index: 999;
+    width: 350px;
+    height: 500px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 
-@media(max-width:767px) {
-    .statistic-grid {
-        max-height: 500px;
-        overflow: hidden;
+
+@media (max-width:767px) {
+    #chatDiv {
+       display:none;
     }
 }
 
-@media(min-width:768px) {
-    .statistic-grid {
-        max-height: 1000px;
-        overflow: hidden;
+@media(max-width:768px) {
+    #chatDiv {
+        display: none;
     }
 }
 
-@media(min-width:992px) {
-    .statistic-grid {
-        max-height: 1000px;
-        overflow: hidden;
+@media(max-width:992px) {
+    #chatDiv {
+        width: 350px;
+        height: 500px;
     }
 }
 
-@media(min-width:1200px) {
-    .statistic-grid {
-        max-height: 1000px;
-        overflow: hidden;
+@media(max-width:1200px) {
+    #chatDiv {
+        width: 350px;
+        height: 500px;
     }
 }   

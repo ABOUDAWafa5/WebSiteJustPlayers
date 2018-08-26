@@ -57,6 +57,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -121,9 +124,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ApplicationInsights">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
@@ -157,7 +157,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ClanMember.cs" />
+    <Compile Include="Models\ClanWar.cs" />
     <Compile Include="Models\HomePageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClashRoyaleApi.cs" />
@@ -187,6 +187,7 @@
     <Content Include="Images\ClanWars.png" />
     <Content Include="Images\clashTournament.jpg" />
     <Content Include="Images\close.png" />
+    <Content Include="Images\discordLogo.png" />
     <Content Include="Images\dott.png" />
     <Content Include="Images\imageLogo.png" />
     <Content Include="Images\l2.png" />
@@ -249,7 +250,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -276,6 +279,10 @@
     <ProjectReference Include="..\DataBase\DataBase.csproj">
       <Project>{5d242a31-b806-47f2-90bb-59bf1abb07ff}</Project>
       <Name>DataBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RoyaleApi\RoyaleApi.csproj">
+      <Project>{1bf6d6f7-9fa3-4e15-82a4-7dfeb5d8a45a}</Project>
+      <Name>RoyaleApi</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

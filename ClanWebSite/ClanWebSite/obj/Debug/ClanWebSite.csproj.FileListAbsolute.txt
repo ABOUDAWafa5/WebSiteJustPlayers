@@ -93,8 +93,10 @@ E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\bin\Microsoft.AI.Dependen
 E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\bin\Microsoft.AI.ServerTelemetryChannel.xml
 E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\bin\Microsoft.AI.WindowsServer.xml
 E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\bin\Microsoft.AI.Web.xml
-E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\obj\Debug\ClanWebSite.csprojResolveAssemblyReference.cache
 E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\obj\Debug\ClanWebSite.csproj.CoreCompileInputs.cache
 E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\obj\Debug\ClanWebSite.csproj.CopyComplete
 E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\obj\Debug\ClanWebSite.dll
 E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\obj\Debug\ClanWebSite.pdb
+E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\obj\Debug\ClanWebSite.csprojAssemblyReference.cache
+E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\bin\RoyaleApi.dll
+E:\Projects\WebSiteJustPlayers\ClanWebSite\ClanWebSite\bin\RoyaleApi.pdb

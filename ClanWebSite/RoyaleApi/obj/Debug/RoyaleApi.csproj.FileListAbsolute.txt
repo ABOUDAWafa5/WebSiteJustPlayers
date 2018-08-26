@@ -1,0 +1,8 @@
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Debug\RoyaleApi.csproj.CoreCompileInputs.cache
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\bin\Debug\RoyaleApi.dll
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\bin\Debug\RoyaleApi.pdb
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\bin\Debug\Newtonsoft.Json.xml
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Debug\RoyaleApi.csproj.CopyComplete
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Debug\RoyaleApi.dll
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Debug\RoyaleApi.pdb

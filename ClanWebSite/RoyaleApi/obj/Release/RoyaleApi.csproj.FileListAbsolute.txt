@@ -1,0 +1,9 @@
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Release\RoyaleApi.csproj.CoreCompileInputs.cache
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Release\RoyaleApi.csprojAssemblyReference.cache
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\bin\Release\RoyaleApi.dll
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\bin\Release\RoyaleApi.pdb
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\bin\Release\Newtonsoft.Json.dll
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\bin\Release\Newtonsoft.Json.xml
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Release\RoyaleApi.csproj.CopyComplete
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Release\RoyaleApi.dll
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Release\RoyaleApi.pdb
