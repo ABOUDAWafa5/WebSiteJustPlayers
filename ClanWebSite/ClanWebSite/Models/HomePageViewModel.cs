@@ -8,7 +8,14 @@ namespace ClanWebSite.Models
 {
     public class HomePageViewModel
     {
-        public List<ClanMember> ClanMembers { get; set; }
+        public List<ClanMember> ClanMembers { get; set; }     
         public TournamentSection Tournaments { get; set; }
+
+        public HomePageViewModel()
+        {
+            ClanMembers = new List<ClanMember>();
+            Tournaments = new TournamentSection();
+        }
+
     }
 }

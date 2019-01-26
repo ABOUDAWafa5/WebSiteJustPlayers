@@ -27,6 +27,29 @@ $(function () {
         copyToClipboard(text);
     });
 
+    $("#toDiscord").click(function (e) {
+        var chatDiv = $('#chatDiv');               
+        if (chatDiv.is(':visible')) {
+            chatDiv.hide();
+        } else {
+            chatDiv.show();
+        }
+        e.preventDefault()
+    });
+
+
+
+    $(".nav-item.nav-link").click(function (e) {
+        $(".nav-item.nav-link").removeClass('active');
+        $(".tab-pane").removeClass('show');
+        
+        $(".nav-item.nav-link").removeClass('active');
+        $(e.target).addClass('active');
+    });
+
+
+    
+
     function copyToClipboard(text) {
         var $temp = $("<input>");
         $("body").append($temp);

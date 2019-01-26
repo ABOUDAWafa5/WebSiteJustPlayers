@@ -38,6 +38,16 @@ $(function () {
     });
 
 
+
+    $(".nav-item.nav-link").click(function (e) {
+        $(".nav-item.nav-link").removeClass('active');
+        $(".tab-pane").removeClass('show');
+        
+        $(".nav-item.nav-link").removeClass('active');
+        $(e.target).addClass('active');
+    });
+
+
     
 
     function copyToClipboard(text) {

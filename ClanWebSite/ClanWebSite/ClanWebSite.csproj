@@ -259,6 +259,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Tournament\Search.cshtml" />
     <Content Include="Views\Video\Video.cshtml" />
+    <Content Include="Views\Home\_Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

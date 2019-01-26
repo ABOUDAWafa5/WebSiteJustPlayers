@@ -34,7 +34,15 @@ namespace ScheduleService
         private void ATimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             var clashRoyaleApi = new ClashRoyaleApi();
+            var clashRoyaleApiUk = new ClashRoyaleApi("PL8YLLUC");
+
+
             var clanInfo = clashRoyaleApi.GetClanInfo();
+
+            var ukClanInfo = clashRoyaleApiUk.GetClanInfo();
+
+            var allMambers = clanInfo.members.ToList();
+            allMambers.AddRange(ukClanInfo.members);            
 
             using (var entities = new ClanManagerEntities())
             {
@@ -44,14 +52,14 @@ namespace ScheduleService
                 {
                     foreach (var member in existingMembers)
                     {
-                        if (!clanInfo.members.Any(s => s.tag != member.Tag))
+                        if (!allMambers.Any(s => s.tag != member.Tag))
                         {
                             entities.Member.Remove(member);
                         }
                     }
                 }
 
-                foreach (var member in clanInfo.members)
+                foreach (var member in allMambers)
                 {
                     if (!existingMembers.Any(s => s.Tag == member.tag))
                     {

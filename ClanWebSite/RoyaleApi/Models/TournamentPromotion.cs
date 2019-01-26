@@ -11,5 +11,14 @@ namespace RoyaleApi.Models
         public TournamentInfo TournamentLeft { get; set; }
         public TournamentInfo TournamentMiddle { get; set; }
         public TournamentInfo TournamentRight { get; set; }
+
+        public TournamentPromotion()
+        {
+            Title = string.Empty;
+            TournamentLeft = new TournamentInfo();
+            TournamentMiddle = new TournamentInfo();
+            TournamentRight = new TournamentInfo();
+        }
+
     }
 }

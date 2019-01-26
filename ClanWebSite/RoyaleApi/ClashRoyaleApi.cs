@@ -16,7 +16,7 @@ namespace RoyaleApi
         private static HttpClient client;
         private static string apiBaseaddress = "https://api.royaleapi.com/";
         private static string latestFoundTournament = string.Empty;
-        private const string CLAN_TAG = "8GPYGYCV";   
+        private string CLAN_TAG = "8GPYGYCV";   
         
         private HttpClient Client
         {
@@ -45,6 +45,16 @@ namespace RoyaleApi
             }
         }
 
+        public ClashRoyaleApi(string clantag)
+        {
+            CLAN_TAG = clantag;
+        }
+
+        public ClashRoyaleApi()
+        {
+
+        }
+
         public static void CreateClient()
         {
             if (client == null)
@@ -58,8 +68,7 @@ namespace RoyaleApi
         public ClanInfo GetClanInfo()
         {
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, $"clan/{CLAN_TAG}");
-            requestMessage.Headers.Add("Auth", apiKey);
-            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            requestMessage.Headers.Add("Auth", apiKey);           
             var result = Client.SendAsync(requestMessage).Result;
 
             if (result.StatusCode == System.Net.HttpStatusCode.OK)

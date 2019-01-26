@@ -1,0 +1,68 @@
+﻿@model List<ClanWebSite.Models.ClanMember>
+<div class="form-group pull-left">
+    <input type="text" class="search form-control" placeholder="Who you are looking for?">
+</div>
+<span class="counter pull-right"></span>
+<table class="table table-hover table-bordered results">
+    <thead class="thead-dark">
+        <tr>
+            <th class="col-lg-1 col-md-1 col-xs-2">#</th>
+            <th class="col-lg-2 col-md-3 col-xs-3">Name</th>
+            <th class="col-lg-2 col-md-3 col-xs-3">%</th>
+            <th class="col-lg-1 col-md-4 hidden-xs">Wins\Battles</th>
+            <th class="col-lg-1 col-md-3 hidden-xs">Join Date</th>
+        </tr>
+        <tr class="warning no-result">
+            <td colspan="4"><i class="fab fa-warning"></i>No result</td>
+        </tr>
+    </thead>
+    <tbody>
+        @{var count = 1;
+            foreach (var item in Model)
+            {
+
+
+                if (item.Percent < 35 && item.ClanWars > 2)
+                {
+                    @:<tr style="background:red">
+                    }
+                    else
+                    {
+                        if ((DateTime.Now - item.JoinDate).TotalDays > 9 && item.ClanWars <= 2)
+                        {
+                            @:<tr style="background:red">
+
+                            }
+                            else
+                            {
+                            @:<tr>
+                            }
+
+                            }
+
+                            if (count == 1)
+                            {
+                            <th scope="row">@count <img src="~/Images/l3.png" width="15" height="15" /></th>
+                            }
+                            else
+                            {
+                            if (count == 2 || count == 3 || count == 4 || count == 5)
+                            {
+                            <th scope="row">@count <img src="~/Images/l2.png" width="15" height="15" /></th>
+                            }
+                            else
+                            {
+                            <th scope="row">@count</th>
+                            }
+                            }
+                            <td>@item.Name</td>
+                            <td>@item.Percent</td>
+                            <td class="hidden-xs">@item.ClanWins\@item.ClanWars</td>
+                            <td class="hidden-xs">@item.JoinDate.ToShortDateString()</td>
+                            @:</tr>
+                        count++;
+                        }
+                     }
+
+                    </tbody>
+                </table>

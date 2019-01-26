@@ -13,6 +13,7 @@ namespace RoyaleApi.Models
         public TournamentSection()
         {
             All = new List<TournamentInfo>();
+            TournamentPromotion = new List<TournamentPromotion>();
         }
     }
 }

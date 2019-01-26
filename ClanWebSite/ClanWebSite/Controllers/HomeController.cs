@@ -12,16 +12,25 @@ namespace ClanWebSite.Controllers
 {
     public class HomeController : Controller
     {
-        private ClashRoyaleApi clashRoyaleApi = new ClashRoyaleApi();
+        private ClashRoyaleApi _clashRoyaleApi = new ClashRoyaleApi();        
         public ActionResult Index()
         {
-            HomePageViewModel viewModel = new HomePageViewModel { ClanMembers = GetClanStatistics() };            
-            viewModel.Tournaments = clashRoyaleApi.GetTournaments();
+            try
+            {
+                HomePageViewModel viewModel = new HomePageViewModel
+                {
+                    ClanMembers = GetClanStatistics(_clashRoyaleApi)                    
+                };
+                viewModel.Tournaments = _clashRoyaleApi.GetTournaments();
 
-            return View(viewModel);
+                return View(viewModel);
+            }catch(Exception ex)
+            {
+                return View(new HomePageViewModel());
+            }
         }
 
-        private List<ClanMember> GetClanStatistics()
+        private List<ClanMember> GetClanStatistics(ClashRoyaleApi clashRoyaleApi)
         {
             using (var entities = new ClanManagerEntities())
             {

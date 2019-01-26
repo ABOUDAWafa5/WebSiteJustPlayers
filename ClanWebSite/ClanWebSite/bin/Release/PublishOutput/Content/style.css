@@ -1413,11 +1413,8 @@ ul.simplefilter {
 /*-- //copyright --*/
 /*-- to-top --*/
 #toTop {
-	display: none;
+	display: block;
 	text-decoration: none;
-	position: fixed;
-	bottom: 20px;
-	right: 2%;
 	overflow: hidden;
 	z-index: 999; 
 	width: 40px;
@@ -1425,16 +1422,55 @@ ul.simplefilter {
 	border: none;
 	text-indent: 100%;
 	background: url(../images/arrow.png) no-repeat 0px 0px;
+    float:left;
 }
+
+#bottomRightIcons {   
+    position: fixed;
+    bottom: 20px;
+    right: 2%;  
+    z-index: 999;
+    border: none;
+    width: 100px;
+    height: 100px;  
+}
+
+#toDiscord {
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    height: 30%;
+    z-index: 999;
+    width: 40px;
+    height: 40px;
+    border: none;
+    text-indent: 100%;
+    background: url(../images/discordLogo.png) no-repeat 0px 0px;
+    float: left;
+    margin-top:5px;
+}
+
+
+#discordShowHide {
+    width: 40px;
+    height: 40px;
+    display: block;
+    overflow: hidden;
+    float: right;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter: alpha(opacity=0);
+}
+
 #toTopHover {
-	width: 40px;
-	height: 40px;
-	display: block;
-	overflow: hidden;
-	float: right;
-	opacity: 0;
-	-moz-opacity: 0;
-	filter: alpha(opacity=0);
+    width: 40px;
+    height: 40px;
+    display: block;
+    overflow: hidden;
+    float: right;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter: alpha(opacity=0);
 }
 /*-- //to-top --*/
 /*-- responsive --*/

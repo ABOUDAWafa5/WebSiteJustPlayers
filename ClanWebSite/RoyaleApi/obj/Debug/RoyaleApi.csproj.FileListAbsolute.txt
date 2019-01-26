@@ -6,3 +6,4 @@ E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\bin\Debug\Newtonsoft.Json.x
 E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Debug\RoyaleApi.csproj.CopyComplete
 E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Debug\RoyaleApi.dll
 E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Debug\RoyaleApi.pdb
+E:\Projects\WebSiteJustPlayers\ClanWebSite\RoyaleApi\obj\Debug\RoyaleApi.csprojAssemblyReference.cache
